@@ -21,6 +21,8 @@
             gtk3
             gtk4
 
+            rename
+
             prismlauncher
             gamemode
         ];
