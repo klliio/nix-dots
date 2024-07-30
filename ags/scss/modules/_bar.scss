@@ -1,0 +1,43 @@
+@import '../var/presets.scss';
+
+$bar-radius: 0px;
+$bar-padding: 0px 10px;
+
+// main bar
+window#bar {
+  background: $bg-dark;
+
+  .left,
+  .center,
+  .right {
+    padding: $bar-padding;
+    margin: -1px 0px;
+  }
+
+  .left {
+    border-radius: 0px 0px $bar-radius 0px;
+  }
+
+  .center {
+    border-radius: 0px 0px $bar-radius $bar-radius;
+  }
+
+  .right {
+    border-radius: 0px 0px 0px $bar-radius;
+
+    .audio,
+    .network,
+    .backlight,
+    .bluetooth {
+      box {
+        border-radius: 6px;
+        padding: 3px 2px;
+        margin: 6px 0px;
+
+        revealer {
+          padding-right: 5px;
+        }
+      }
+    }
+  }
+}

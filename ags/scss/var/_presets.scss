@@ -1,0 +1,27 @@
+@import './catppuccin.scss';
+
+$accent: transparentize($cat-sapphire, 0.1);
+$bg-dark: $cat-mantle;
+$bg-light: $cat-base;
+$shadow: $cat-crust;
+$text: $cat-text;
+$subtext: transparentize($text, 0.3);
+
+$slider-1: $cat-blue;
+$slider-2: $cat-sapphire;
+$slider-3: $cat-teal;
+
+$border-width: 2px;
+
+$font-size-huge: 44px;
+$font-size-big: 20px;
+$font-size-medium: 16px;
+$font-size-small: 14px;
+$font-size-sep: 16px;
+
+$font-weight-bold: 600;
+$font-weight-normal: 400;
+
+$icon-size-big: 50px;
+$icon-size-medium: 24px;
+$icon-size-small: 18px;

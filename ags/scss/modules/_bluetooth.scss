@@ -1,0 +1,38 @@
+@import '../var/presets.scss';
+@import './menus.scss';
+
+.bluetooth {
+  &.bar {
+    label {
+      padding-left: 5px;
+    }
+  }
+
+  &.menu {
+    @include menu;
+
+    .content {
+      button {
+        transition: background 150ms ease-in-out 0s;
+        padding: 5px;
+
+        &:hover {
+          background: mix($bg-light, $bg-dark, 10%);
+        }
+
+        .type {
+          margin-right: 5px;
+        }
+
+        .battery,
+        .name {
+          font-weight: $font-weight-normal;
+        }
+
+        .selected {
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+}

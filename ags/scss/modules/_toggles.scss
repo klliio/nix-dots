@@ -1,0 +1,37 @@
+@import '../var/presets.scss';
+
+.toggle {
+  button {
+    padding: 9px;
+    background: $bg-dark;
+    transition: background 200ms ease-in-out 0s;
+
+    image {
+      color: $accent;
+      margin-right: 5px;
+    }
+
+    label {
+      color: $text;
+    }
+
+    &:hover {
+      background: mix($bg-dark, $accent, 95%);
+    }
+  }
+
+  &.active {
+    button {
+      background: $accent;
+
+      &:hover {
+        background: mix($bg-dark, $accent, 15%);
+      }
+
+      image,
+      label {
+        color: $bg-dark;
+      }
+    }
+  }
+}

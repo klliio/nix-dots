@@ -1,0 +1,36 @@
+@import '../var/presets.scss';
+@import './menus.scss';
+
+.audio {
+  &.revealing-slider {
+    scale {
+      padding-left: 5px;
+    }
+  }
+}
+
+.microphone,
+.speaker {
+  &.menu {
+    @include menu;
+
+    .content {
+      button {
+        transition: background 150ms ease-in-out 0s;
+        padding: 5px;
+
+        &:hover {
+          background: mix($bg-light, $bg-dark, 10%);
+        }
+
+        .volume {
+          margin-right: 5px;
+        }
+
+        .device {
+          font-weight: $font-weight-normal;
+        }
+      }
+    }
+  }
+}

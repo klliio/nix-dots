@@ -1,0 +1,52 @@
+@import '../var/presets.scss';
+
+.long-slider,
+.revealing-slider {
+  scale {
+    trough {
+      border-radius: 16px;
+      background: $bg-dark;
+
+      slider {
+        border-radius: 16px;
+        min-width: 10px;
+        min-height: 10px;
+        background: $text;
+      }
+    }
+  }
+}
+
+.revealing-slider {
+  scale {
+    trough {
+      box-shadow: 1px 0px 2px -1px $accent;
+
+      min-width: 70px;
+      min-height: 10px;
+      margin-right: 5px;
+    }
+
+    highlight {
+      border-radius: 16px 0 0 16px;
+      background: linear-gradient(90deg, $slider-1 0%, $slider-2 70%, $slider-3 5000%);
+    }
+  }
+}
+
+.long-slider {
+  scale {
+    trough {
+      box-shadow: 0px -1px 2px -1px $accent;
+
+      min-height: 70px;
+      min-width: 10px;
+      margin-right: 5px;
+    }
+
+    highlight {
+      border-radius:  0px 0px 16px 16px;
+      background: linear-gradient(180deg, $slider-1 0%, $slider-2 70%, $slider-3 5000%);
+    }
+  }
+}

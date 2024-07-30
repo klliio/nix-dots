@@ -1,0 +1,35 @@
+@import './var/presets.scss';
+@import './modules/bar.scss';
+@import './modules/battery.scss';
+@import './modules/sliders.scss';
+@import './modules/audio.scss';
+@import './modules/backlight.scss';
+@import './modules/bluetooth.scss';
+@import './modules/network.scss';
+@import './modules/clock.scss';
+@import './modules/control-centre.scss';
+@import './modules/media.scss';
+@import './modules/toggles.scss';
+
+* {
+  all: unset;
+  font-size: $font-size-medium;
+  font-family: monospace;
+  font-weight: $font-weight-bold;
+}
+
+// seperator bar
+.seperator {
+  background: $subtext;
+  margin: 10px 0px;
+  padding: 0px 1px;
+}
+
+label {
+  color: $text;
+}
+
+image {
+  font-size: $icon-size-small;
+  color: $accent;
+}

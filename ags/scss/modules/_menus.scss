@@ -1,0 +1,20 @@
+@import '../var/presets.scss';
+
+@mixin menu {
+  padding: 15px;
+  background: $bg-light;
+  min-width: 200px;
+
+  .title-box {
+    .separator {
+      background: $accent;
+      padding: 2px 15px 0px 15px;
+    }
+
+    .title {
+      font-size: $font-size-medium;
+    }
+
+    margin-bottom: 5px;
+  }
+}

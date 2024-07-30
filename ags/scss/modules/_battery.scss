@@ -1,0 +1,42 @@
+@import '../var/presets.scss';
+
+.battery {
+  &.bar {
+    margin: 0px 0px 0px -7px; // offset margin
+
+    image {
+      padding: 3px;
+    }
+
+    .circle {
+      margin: 9px;
+      color: $accent;
+
+      image {
+        border-radius: 100%;
+        background: $bg-dark;
+        margin: 7px;
+        font-size: $icon-size-medium;
+      }
+    }
+
+    .bar {
+      margin: 0px 7px;
+
+      trough {
+        margin-right: 5px;
+
+        block {
+          padding: 2px;
+          margin: 10px 2px;
+          box-shadow: 1px 0px 2px -1px $accent;
+          border-radius: 500px;
+
+          &.filled {
+            background: $accent;
+          }
+        }
+      }
+    }
+  }
+}
