@@ -114,7 +114,7 @@ export const NetworkWifiToggle = () =>
     ArrowToggleButton({
         name: 'network',
         icon: wifi.bind('icon_name'),
-        label: wifi.bind('ssid').as((ssid) => ssid || 'Not Connected'),
+        label: wifi.bind('ssid').as((ssid) => ssid || 'Disabled'),
         connection: [wifi, () => wifi.enabled],
         deactivate: () => (wifi.enabled = false),
         activate: () => {

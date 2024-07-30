@@ -7,13 +7,17 @@ const { icons } = Options;
 const icon = Variable(
     bluetooth
         .bind('connected_devices')
-        .as((connected) => `bluetooth-${connected[0] ? 'active' : 'disabled'}-symbolic`)
+        .as(
+            (connected) =>
+                `bluetooth-${connected[0] ? 'active' : 'disabled'}-symbolic`
+        )
 );
 
 export const BluetoothIndicator = (reveal = Variable(false)) =>
     Widget.EventBox({
         class_names: ['bluetooth', 'bar'],
-        setup: (self) => self.on('leave-notify-event', () => (reveal.value = false)),
+        setup: (self) =>
+            self.on('leave-notify-event', () => (reveal.value = false)),
         child: Widget.Box({
             vertical: false,
             spacing: 0,
@@ -36,7 +40,11 @@ export const BluetoothIndicator = (reveal = Variable(false)) =>
                     child: Widget.Label({
                         label: bluetooth
                             .bind('connected_devices')
-                            .as((connected) => (connected[0] ? connected[0].name : 'Disconnected')),
+                            .as((connected) =>
+                                connected[0]
+                                    ? connected[0].name
+                                    : 'Disconnected'
+                            ),
                     }),
                 }),
             ],
@@ -56,7 +64,10 @@ const Device = (device) =>
                     max_width_chars: 13,
                 }),
                 Widget.Box({ hexpand: true }),
-                Widget.Label({ class_name: 'battery', label: device.battery_percentage + '%' }),
+                Widget.Label({
+                    class_name: 'battery',
+                    label: device.battery_percentage + '%',
+                }),
                 Widget.Spinner({
                     active: device.bind('connecting'),
                     visible: device.bind('connecting'),
@@ -84,7 +95,9 @@ export const BluetoothDeviceSelection = () =>
                     class_name: 'devices',
                     children: bluetooth
                         .bind('devices')
-                        .as((devices) => devices.filter((d) => d.name).map(Device)),
+                        .as((devices) =>
+                            devices.filter((d) => d.name).map(Device)
+                        ),
                 }),
             }),
         ],
@@ -94,9 +107,12 @@ export const BluetoothToggle = () =>
     ArrowToggleButton({
         name: 'bluetooth',
         icon: icon.value,
-        label: bluetooth
-            .bind('connected_devices')
-            .as((connected) => (connected[0] ? connected[0].name : 'Not Connected')),
+        label: Utils.watch('Disabled', bluetooth, () => {
+            if (!bluetooth.enabled) return 'Disabled';
+            if (bluetooth.connected_devices.length === 1)
+                return bluetooth.connected_devices[0].alias;
+            return `${bluetooth.connected_devices.length} Connected`;
+        }),
         connection: [bluetooth, () => bluetooth.enabled],
         deactivate: () => (bluetooth.enabled = false),
         activate: () => (bluetooth.enabled = true),
