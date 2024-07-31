@@ -107,9 +107,9 @@
                     (f "pavucontrol")
                     (f "mpv")
                     (f "imv")
-                    # "workspace special:spotify, title:spotify"
-                    # "workspace special:keepass, title:keepass"
-                    # "workspace special:obsidian, title:obsidian"
+                    "workspace special:spotify, title:(.*)(Spotify)(.*)"
+                    "workspace special:keepassxc, title: KeePassXC"
+                    "workspace special:obsidian, title:(.*)(Obsidian)(.*)"
                 ];
 
                 bind = let
@@ -118,7 +118,9 @@
                     ws = binding "SUPER" "workspace";
                     resizeactive = binding "SUPER CTRL" "resizeactive";
                     mvactive = binding "SUPER ALT" "moveactive";
-                    mvtows = binding "SUPER SHIFT" "movetoworkspace";
+                    mvtows = binding "SUPER CTRL SHIFT" "movetoworkspace";
+                    mvtowssilent = binding "SUPER SHIFT" "movetoworkspacesilent";
+                    special = binding "SUPER SHIFT" "togglespecialworkspace";
                     arr = [1 2 3 4 5 6 7 8 9];
                 in [
                     "SUPER SHIFT, Q, exit"
@@ -142,7 +144,9 @@
                     (ws "left" "e-1")
                     (ws "right" "e+1")
                     (mvtows "left" "e-1")
-                    (mvtows "right" "e+1")
+                    (mvtows "left" "e-1")
+                    (mvtowssilent "right" "e+1")
+                    (mvtowssilent "right" "e+1")
                     (resizeactive "h" "-20 0")
                     (resizeactive "j" "0 20")
                     (resizeactive "k" "0 -20")
@@ -151,9 +155,12 @@
                     (mvactive "j" "0 20")
                     (mvactive "k" "0 -20")
                     (mvactive "l" "20 0")
+                    (special "O" "obsidian")
+                    (special "P" "keepassxc")
+                    (special "S" "spotify")
                 ]
                 ++ (map (i: ws (toString i) (toString i)) arr)
-                ++ (map (i: mvtows (toString i) (toString i)) arr);
+                ++ (map (i: mvtowssilent (toString i) (toString i)) arr);
 
                 bindle = [
                     ",XF86MonBrightnessDown, exec, ${brightnessctl} set 5%-"
