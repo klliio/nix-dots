@@ -38,6 +38,7 @@
     # System packages
     environment.systemPackages = with pkgs; [
         mesa
+        intel-media-driver
         nano
         wget
         git

@@ -8,6 +8,7 @@
         ./stylix.nix
         ./steam.nix
         ./adb.nix
+        ./tuigreet.nix
     ];
 
     users.users.${userInfo.username} = {
