@@ -3,18 +3,19 @@
 
     programs.spicetify =
     let
+        # spicePkgs = inputs.spicetify-nix.packages.${pkgs.system}.default;
         spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
     in {
         enable = true;
 
         theme = spicePkgs.themes.comfy;
 
-        # enabledExtensions = with spicePkgs; [
-        #     volumePercentage
-        #     adblock
-        #     hidePodcasts
-        #     shuffle
-        # ];
+        enabledExtensions = with spicePkgs.extensions; [
+            volumePercentage
+            adblock
+            hidePodcasts
+            shuffle
+        ];
 
         colorScheme = "custom";
         customColorScheme = with config.lib.stylix.colors; {

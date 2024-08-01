@@ -44,6 +44,9 @@
                 exec-once = [
                     "ags"
                     "mako"
+                    # "[workspace special:keepassxc silent] keepassxc"
+                    # "[workspace special:obsidian silent] obsidian"
+                    "[workspace special:spotify silent] spotify"
                 ];
 
                 monitor = [
@@ -108,7 +111,7 @@
                     (f "mpv")
                     (f "imv")
                     "workspace special:spotify, title:(.*)(Spotify)(.*)"
-                    "workspace special:keepassxc, title: KeePassXC"
+                    "workspace special:keepassxc, title:(.*)(KeePassXC)(.*)"
                     "workspace special:obsidian, title:(.*)(Obsidian)(.*)"
                 ];
 
