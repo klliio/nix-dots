@@ -11,10 +11,10 @@
         rofi-wayland
         nautilus
         foot
-        # firefox
+        firefox
         keepassxc
         obsidian
-        # spotify
+        # spotify /* added by spicetify */
 
         # screen capture
         wl-clipboard
@@ -44,9 +44,9 @@
                 exec-once = [
                     "ags"
                     "mako"
-                    # "[workspace special:keepassxc silent] keepassxc"
+                    "[workspace special:keepassxc silent] keepassxc"
                     # "[workspace special:obsidian silent] obsidian"
-                    "[workspace special:spotify silent] spotify"
+                    # "[workspace special:spotify silent] spotify"
                 ];
 
                 monitor = [
