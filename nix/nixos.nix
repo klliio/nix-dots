@@ -9,6 +9,7 @@
         ./steam.nix
         ./adb.nix
         ./tuigreet.nix
+        ./syncthing.nix
     ];
 
     users.users.${userInfo.username} = {
