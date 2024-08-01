@@ -18,6 +18,8 @@
 
         packages = with pkgs; [
             unzip
+            rar
+
             gtk3
             gtk4
 
