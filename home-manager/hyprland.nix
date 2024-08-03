@@ -8,7 +8,6 @@
 
         # user
         pavucontrol
-        rofi-wayland
         nautilus
         foot
         firefox
@@ -129,8 +128,7 @@
                     "SUPER SHIFT, Q, exit"
                     "SUPER, W, killactive"
 
-                    "SUPER, P, exec, rofi -show drun"
-                    "SUPER, R, exec, rofi -show run"
+                    "SUPER, P, exec, fuzzel"
 
                     "SUPER, RETURN, exec, ${pkgs.foot}/bin/foot"
 

@@ -50,6 +50,7 @@
                 ../home-manager/gtk.nix
                 ../home-manager/spicetify.nix
                 ../home-manager/mako.nix
+                ../home-manager/fuzzel.nix
             ];
         };
     };
