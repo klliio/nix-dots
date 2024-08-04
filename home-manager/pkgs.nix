@@ -3,5 +3,7 @@
     home.packages = with pkgs; [
         python3
         lzip
+        gimp
+        inkscape
     ];
 }
