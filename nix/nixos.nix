@@ -51,6 +51,7 @@
                 ../home-manager/spicetify.nix
                 ../home-manager/mako.nix
                 ../home-manager/fuzzel.nix
+                ../home-manager/pkgs.nix
             ];
         };
     };
