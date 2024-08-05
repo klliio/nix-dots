@@ -122,13 +122,13 @@
                     mvactive = binding "SUPER ALT" "moveactive";
                     mvtows = binding "SUPER CTRL SHIFT" "movetoworkspace";
                     mvtowssilent = binding "SUPER SHIFT" "movetoworkspacesilent";
-                    special = binding "SUPER SHIFT" "togglespecialworkspace";
+                    special = key: cmd: pid: arg: "SUPER SHIFT, ${key}, exec, pgrep ${arg} ${pid}  && hyprctl dispatch togglespecialworkspace ${cmd} || ${cmd} &";
                     arr = [1 2 3 4 5 6 7 8 9];
                 in [
                     "SUPER SHIFT, Q, exit"
                     "SUPER, W, killactive"
 
-                    "SUPER, P, exec, fuzzel"
+                    "SUPER, P, exec, ${pkgs.fuzzel}/bin/fuzzel"
 
                     "SUPER, RETURN, exec, ${pkgs.foot}/bin/foot"
 
@@ -156,9 +156,9 @@
                     (mvactive "j" "0 20")
                     (mvactive "k" "0 -20")
                     (mvactive "l" "20 0")
-                    (special "O" "obsidian")
-                    (special "P" "keepassxc")
-                    (special "S" "spotify")
+                    (special "O" "obsidian" "obsidian" "-f")
+                    (special "P" "keepassxc" "keepassxc-wrap" "")
+                    (special "S" "spotify" "spotify" "")
                 ]
                 ++ (map (i: ws (toString i) (toString i)) arr)
                 ++ (map (i: mvtowssilent (toString i) (toString i)) arr);
