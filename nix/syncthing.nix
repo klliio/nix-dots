@@ -5,7 +5,7 @@
         dataDir = "/home/${userInfo.username}/Syncthing";
         configDir = "/home/${userInfo.username}/.config/syncthing";
         overrideDevices = true;     # overrides any devices added or deleted through the WebUI
-        overrideFolders = false;     # overrides any folders added or deleted through the WebUI
+        overrideFolders = true;     # overrides any folders added or deleted through the WebUI
         settings = {
             devices = {
                 "pixel" = { id = "TA6YGIP-ZPMMDCL-TZ35VAD-VBGDY4E-YJ4QWCL-RDUUA4V-QH7BVRF-73DYGQQ"; };

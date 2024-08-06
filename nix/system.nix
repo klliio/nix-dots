@@ -48,8 +48,6 @@
     # Enable the OpenSSH daemon.
     services = {
         openssh.enable = true;
-        zfs.autoScrub.enable = true;
-        zfs.trim.enable = true;
         printing.enable = true;
         libinput.enable = true;
 
