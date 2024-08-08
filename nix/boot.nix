@@ -7,6 +7,8 @@
         device = "nodev";
     };
 
+    boot.supportedFilesystems = [ "ntfs" ]; # enable ntfs support at boot
+
     fileSystems."/media" = {
         device = "/media";
         fsType = "tmpfs";
