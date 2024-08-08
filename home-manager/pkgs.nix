@@ -5,5 +5,6 @@
         lzip
         gimp
         inkscape
+        nicotine-plus
     ];
 }
