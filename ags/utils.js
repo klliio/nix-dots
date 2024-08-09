@@ -31,6 +31,19 @@ export function icon(name, fallback = icons.fallback.missing) {
     const icon = IconSubstitutes[name] || name;
     if (Utils.lookUpIcon(icon)) return icon;
 
-    print(`[LOG] no icon substitute "${icon}" for "${name}", fallback: "${fallback}"`);
+    print(
+        `[LOG] no icon substitute "${icon}" for "${name}", fallback: "${fallback}"`
+    );
     return fallback;
+}
+
+export function sh(cmd) {
+    return Utils.execAsync(cmd).catch((err) => {
+        console.error(typeof cmd === 'string' ? cmd : cmd.join(' '), err);
+        return '';
+    });
+}
+
+export function range(length, start = 1) {
+    return Array.from({ length }, (_, i) => i + start);
 }

@@ -151,5 +151,6 @@ export default {
     },
     bar: {
         name: 'bar',
+        workspaces: 9,
     },
 };

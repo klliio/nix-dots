@@ -7,6 +7,7 @@ import Options from '../../options.js';
 import { BatteryIndicator } from '../battery.js';
 import { AudioIndicator } from '../audio.js';
 import { MediaLabel } from '../media.js';
+import { Workspaces } from '../hyprland.js';
 
 const { date, bar } = Options;
 const WINDOW_NAME = bar.name;
@@ -17,7 +18,11 @@ function Left() {
         class_name: 'left',
         hpack: 'start',
         spacing: 6,
-        children: [BatteryIndicator(), Seperator({ vertical: true }), MediaLabel()],
+        children: [
+            BatteryIndicator(),
+            Seperator({ vertical: true }),
+            MediaLabel(),
+        ],
     });
 }
 
@@ -26,7 +31,7 @@ function Center() {
         class_name: 'center',
         hpack: 'center',
         spacing: 6,
-        children: [],
+        children: [Workspaces(bar.workspaces)],
     });
 }
 
@@ -55,7 +60,7 @@ function BarWindow() {
         exclusivity: 'exclusive',
         child: Widget.CenterBox({
             start_widget: Left(),
-            // center_widget: Center(),
+            center_widget: Center(),
             end_widget: Right(),
         }),
 
@@ -63,14 +68,14 @@ function BarWindow() {
             makes things that rely on on_hover_lost
             behave when exiting the window
 
-            this is to make it so that padding around 
+            this is to make it so that padding around
             the window is not needed
         \*                                            */
-        setup: (self) => self.on('leave-notify-event', () => { }),
+        setup: (self) => self.on('leave-notify-event', () => {}),
     });
 }
 
-export default function() {
+export default function () {
     App.addWindow(BarWindow());
     Utils.timeout(100, () => {
         App.openWindow(WINDOW_NAME);
