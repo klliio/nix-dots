@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... } :
+{ pkgs, inputs, config, ... } :
 {
     home.packages = with pkgs; [
         # utils
@@ -15,8 +15,6 @@
         # screen capture
         wl-clipboard
         wf-recorder
-        slurp
-        grim
     ];
 
 
@@ -26,6 +24,8 @@
             playerctl = "${pkgs.playerctl}/bin/playerctl";
             brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
             wpctl = "${pkgs.wireplumber}/bin/wpctl";
+            screenshot = import ./scripts/screenshot.nix pkgs;
+            colours = config.lib.stylix.colors;
         in {
             enable = true;
             systemd.enable = true;
@@ -124,6 +124,9 @@
                     "SUPER, P, exec, ${pkgs.fuzzel}/bin/fuzzel"
 
                     "SUPER, RETURN, exec, ${pkgs.foot}/bin/foot"
+
+                    ",PRINT,       exec, ${screenshot} --quick"
+                    "SUPER, PRINT, exec, ${screenshot} --background ${colours.base00}80 --border ${colours.base0D}ff --select 00000000"
 
                     "SUPER, F, fullscreen"
                     "SUPER SHIFT, F, togglefloating"
