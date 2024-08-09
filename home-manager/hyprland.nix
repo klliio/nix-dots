@@ -7,10 +7,7 @@
         mako
 
         # user
-        pavucontrol
-        nautilus
         foot
-        firefox
         keepassxc
         obsidian
         # spotify /* added by spicetify */
@@ -20,10 +17,6 @@
         wf-recorder
         slurp
         grim
-
-        # image
-        imv
-        mpv
     ];
 
 

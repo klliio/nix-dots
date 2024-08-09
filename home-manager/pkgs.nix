@@ -3,8 +3,21 @@
     home.packages = with pkgs; [
         python3
         lzip
+
+        # image
         gimp
         inkscape
+        imv
+        mpv
+
+        # music
         nicotine-plus
+        puddletag
+        loudgain
+
+        # general
+        nautilus
+        firefox
+        pavucontrol
     ];
 }
