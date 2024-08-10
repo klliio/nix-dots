@@ -22,6 +22,9 @@
 
     # Enable opengl
     hardware.graphics.enable = true;
+    hardware.graphics.extraPackages = with pkgs; [
+        intel-media-driver
+    ];
 
     # Enable flakes
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
