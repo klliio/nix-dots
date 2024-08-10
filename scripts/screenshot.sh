@@ -59,7 +59,7 @@ case "$selection" in
 esac
 
 while true; do
-    filename=$(find "$dir" -maxdepth 1 -type f -printf "%f\n" | sed -E 's/\.[a-zA-Z]*//' | fuzzel -d)
+    filename=$(find "$dir" -maxdepth 1 -type f -printf "%f\n" | sed -E 's/\.[a-zA-Z0-9]*//' | fuzzel -d)
 
     # check if name was entered
     if [ -z "$filename" ]; then
