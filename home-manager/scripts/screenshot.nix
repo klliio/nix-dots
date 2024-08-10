@@ -67,7 +67,7 @@ pkgs.writeShellScript "screenshot" ''
     esac
 
     while true; do
-        filename=$(find "$dir" -maxdepth 1 -type f -printf "%f\n" | sed -E 's/\.[a-zA-Z0-9]*//' | ${fuzzel} -d)
+        filename=$(find "$dir" -maxdepth 1 -type f -printf "%f\n" | sed -E 's/\.[a-zA-Z0-9]*//' | ${fuzzel} -d --no-fuzzy)
 
         # check if name was entered
         if [ -z "$filename" ]; then

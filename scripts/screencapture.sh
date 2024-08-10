@@ -43,7 +43,7 @@ done
 
 while true; do
     # get filename with the extension
-    filename=$(find "$dir" -maxdepth 1 -type f -printf "%f\n" | sed -E 's/\.[a-zA-Z0-9]*//' | fuzzel -d)
+    filename=$(find "$dir" -maxdepth 1 -type f -printf "%f\n" | sed -E 's/\.[a-zA-Z0-9]*//' | fuzzel -d --no-fuzzy)
     # check if a name was entered
     if [ -z "$filename" ]; then
         notify-send "Screen capture" "No filename entered"
