@@ -3,6 +3,7 @@
     home.packages = with pkgs; [
         python3
         lzip
+        ffmpeg
 
         # image
         gimp

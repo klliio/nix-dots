@@ -5,16 +5,13 @@
         brightnessctl
         playerctl
         mako
+        wl-clipboard
 
         # user
         foot
         keepassxc
         obsidian
         # spotify /* added by spicetify */
-
-        # screen capture
-        wl-clipboard
-        wf-recorder
     ];
 
 
@@ -25,6 +22,7 @@
             brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
             wpctl = "${pkgs.wireplumber}/bin/wpctl";
             screenshot = import ./scripts/screenshot.nix pkgs;
+            screencapture = import ./scripts/screencapture.nix pkgs;
             colours = config.lib.stylix.colors;
         in {
             enable = true;
@@ -125,10 +123,11 @@
 
                     "SUPER, RETURN, exec, ${pkgs.foot}/bin/foot"
 
-                    ",PRINT,       exec, ${screenshot} --quick"
-                    "SUPER, PRINT, exec, ${screenshot} --background ${colours.base00}80 --border ${colours.base0D}ff --select 00000000"
+                    ",            PRINT, exec, ${screenshot} --quick"
+                    "SUPER,       PRINT, exec, ${screenshot} --background ${colours.base00}80 --border ${colours.base0D}ff --select 00000000"
+                    "SUPER SHIFT, PRINT, exec, ${screencapture} --background ${colours.base00}80 --border ${colours.base0D}ff --select 00000000"
 
-                    "SUPER, F, fullscreen"
+                    "SUPER,       F, fullscreen"
                     "SUPER SHIFT, F, togglefloating"
 
                     "SUPER, SPACE,   layoutmsg, swapwithmaster"
