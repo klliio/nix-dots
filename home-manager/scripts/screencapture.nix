@@ -10,7 +10,7 @@ pkgs.writeShellScript "screencapture" ''
     if [ -n "$(pgrep wf-recorder)" ]; then
         pkill --signal SIGINT wf-recorder
         ${notify-send} "Screen capture" "Ended capture"
-        exit 1
+        exit 0
     fi
 
     dir="$HOME/Videos/"
@@ -80,9 +80,9 @@ pkgs.writeShellScript "screencapture" ''
     selection=$(printf "Region\nFullscreen" | ${fuzzel} -d)
     case "$selection" in
     "Region")
-        ${wf-recorder} --geometry "$(${slurp} -d -b $background -c $border -s $select)" -f "$dir$filename.mp4" -c libx264rgb
+        ${wf-recorder} --geometry "$(${slurp} -d -b $background -c $border -s $select)" -f "$dir$filename.mp4" -c libx264rgb &
         ;;
-    "Fullscreen") ${wf-recorder} -f "$dir$filename.mp4" -c libx264rgb ;;
+    "Fullscreen") ${wf-recorder} -f "$dir$filename.mp4" -c libx264rgb & ;;
     esac
 
     ${notify-send} "Screen capture" "Started capture as $filename.mp4"
