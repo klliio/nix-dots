@@ -205,7 +205,7 @@ export const MediaBox = ({ name, ...rest }) =>
         reveal_child: opened.popout.bind().as((v) => v === name),
         child: Widget.Box({
             vertical: true,
-            spacing: 15,
+            spacing: 0,
             class_name: 'media',
             children: players.as((p) => p.map(Player)),
             ...rest,
