@@ -13,18 +13,41 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
+  fileSystems."/media" =
+    { device = "/media";
+      fsType = "tmpfs";
+      options = [ "noatime" ];
+    };
+
+  boot.initrd.luks.devices."NIXCRYPT".device = "/dev/disk/by-uuid/17033c83-f6db-4034-912f-d84948e0cb8e";
+  boot.initrd.luks.devices."NIXCRYPT".bypassWorkqueues = true;
+  boot.initrd.luks.devices."NIXCRYPT".allowDiscards = true;
+
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/9f4678e2-fb64-452c-bbd8-b32a3b5c0aaa";
-      fsType = "ext4";
+    { device = "/dev/mapper/NIXCRYPT";
+      fsType = "btrfs";
+      options = [ "subvol=root" "noatime" "compress-force=zstd" ];
+    };
+
+  fileSystems."/nix" =
+    { device = "/dev/mapper/NIXCRYPT";
+      fsType = "btrfs";
+      options = [ "subvol=nix" "noatime" "compress-force=zstd" ];
+    };
+
+  fileSystems."/home" =
+    { device = "/dev/mapper/NIXCRYPT";
+      fsType = "btrfs";
+      options = [ "subvol=home" "noatime" "compress-force=zstd" ];
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/AC03-01AF";
+    { device = "/dev/disk/by-label/BOOT";
       fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
+      options = [ "fmask=0022" "dmask=0022" "noatime" ];
     };
 
-  swapDevices = [ ];
+  swapDevices = [  { device = "/swap/swapfile"; } ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

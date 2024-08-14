@@ -54,6 +54,10 @@
         printing.enable = true;
         libinput.enable = true;
 
+        # btrfs
+        btrfs.autoScrub.enable = true;
+        fstrim.enable = true;
+
         # hyprland
         gvfs.enable = true;
         devmon.enable = true;
