@@ -10,7 +10,6 @@
             main = {
                 box-drawings-uses-font-glyphs = "yes";
                 pad = "5x5center";
-                notify = "notify-send -a \${app-id} -i \${app-id} \${title} \${body}";
                 selection-target = "clipboard";
             };
 
@@ -30,8 +29,10 @@
             };
 
             cursor = {
-                style = "beam";
-                beam-thickness = "2";
+                style = "underline";
+                underline-thickness = 1.5;
+                blink = true;
+                blink-rate = 500;
             };
 
             tweak = {
