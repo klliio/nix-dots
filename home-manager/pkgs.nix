@@ -4,6 +4,7 @@
         python3
         lzip
         ffmpeg
+        aria2
 
         # image
         gimp

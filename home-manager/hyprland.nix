@@ -81,7 +81,7 @@
                         drag_lock = true;
                     };
                     accel_profile = "flat";
-                    sensitivity = 0;
+                    sensitivity = 0.5;
                     numlock_by_default = true;
                     float_switch_override_focus = 2;
                 };
