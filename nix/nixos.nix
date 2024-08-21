@@ -52,6 +52,7 @@
                 ../home-manager/mako.nix
                 ../home-manager/fuzzel.nix
                 ../home-manager/pkgs.nix
+                ../home-manager/weechat.nix
             ];
         };
     };
