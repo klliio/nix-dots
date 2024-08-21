@@ -8,6 +8,7 @@ require("conform").setup({
 		nix = { "nixfmt" },
 		shell = { "shfmt" },
 		javascript = { "prettierd" },
+		java = { "prettierd" },
 		css = { "prettierd" },
 		scss = { "prettierd" },
 	},
