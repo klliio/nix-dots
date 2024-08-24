@@ -63,9 +63,3 @@ require("lspconfig").tsserver.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
-
-
-require("lspconfig").java_language_server.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
