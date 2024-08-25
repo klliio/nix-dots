@@ -12,11 +12,14 @@
         vscode-langservers-extracted
         typescript
         typescript-language-server
+        jdt-language-server
+        rust-analyzer
 
         shfmt
         nixfmt-rfc-style
         stylua
         prettierd
+        rustfmt
 
         wl-clipboard # allows copy paste
         fd

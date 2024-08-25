@@ -11,5 +11,6 @@ require("conform").setup({
 		java = { "prettierd" },
 		css = { "prettierd" },
 		scss = { "prettierd" },
+        rust = { "rustfmt" },
 	},
 })
