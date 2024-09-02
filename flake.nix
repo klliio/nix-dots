@@ -29,7 +29,7 @@
         userInfo = {
             username = "klliio";
             hostname = "nix";
-            wallpaper = ./Wallpapers/bocchi-vending.png;
+            wallpaper = ./Wallpapers/bocchi-bw.png;
         };
     in {
         nixosConfigurations = {
