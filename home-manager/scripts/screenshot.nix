@@ -13,6 +13,7 @@ pkgs.writeShellScript "screenshot" ''
     select="00000010"
     quality=85
     quick=false
+    matchmode="exact"
 
     mkdir -p "$dir"
 
@@ -52,6 +53,10 @@ pkgs.writeShellScript "screenshot" ''
         shift
     done
 
+    if ! [ -d "$dir" ]; then
+        mkdir -p "$dir"
+    fi
+
     if [ "$quick" = true ]; then
         ${grim} -t jpeg -q "$quality" "$dir$time.jpeg"
         ${notify-send} -a Screenshot -i "$dir$time.jpeg" "Screenshot" "Saved as $time.png"
@@ -67,7 +72,7 @@ pkgs.writeShellScript "screenshot" ''
     esac
 
     while true; do
-        filename=$(find "$dir" -maxdepth 1 -type f -printf "%f\n" | sed -E 's/\.[a-zA-Z0-9]*//' | ${fuzzel} -d --no-fuzzy)
+        filename=$(find "$dir" -maxdepth 1 -type f -printf "%f\n" | sed -E 's/\.[a-zA-Z0-9]*//' | ${fuzzel} -d --match-mode="$matchmode")
 
         # check if name was entered
         if [ -z "$filename" ]; then

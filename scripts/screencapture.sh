@@ -11,6 +11,7 @@ dir="$HOME/Videos/"
 background="FFFFFF46"
 border="00000076"
 select="00000010"
+matchmode="exact"
 
 while [ "$#" -gt 0 ]; do
     arg="$1"
@@ -41,9 +42,13 @@ while [ "$#" -gt 0 ]; do
     shift
 done
 
+if ! [ -d "$dir" ]; then
+    mkdir -p "$dir"
+fi
+
 while true; do
     # get filename with the extension
-    filename=$(find "$dir" -maxdepth 1 -type f -printf "%f\n" | sed -E 's/\.[a-zA-Z0-9]*//' | fuzzel -d --no-fuzzy)
+    filename=$(find "$dir" -maxdepth 1 -type f -printf "%f\n" | sed -E 's/\.[a-zA-Z0-9]*//' | fuzzel -d --match-mode="$matchmode")
     # check if a name was entered
     if [ -z "$filename" ]; then
         notify-send "Screen capture" "No filename entered"
