@@ -1,1 +1,1 @@
-![alt text](https://github.com/klliio/nix-dots/blob/main/assets/showcase.jpeg?raw=true)
+![alt text](https://github.com/klliio/nix-dots/blob/main/assets/preview.jpeg?raw=true)
