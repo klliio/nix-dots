@@ -130,10 +130,22 @@
 
                     "SUPER,       F, fullscreen"
                     "SUPER SHIFT, F, togglefloating"
-
                     "SUPER, SPACE,   layoutmsg, swapwithmaster"
                     "SUPER SHIFT, J, layoutmsg, swapprev"
                     "SUPER SHIFT, K, layoutmsg, swapnext"
+
+                    # add/remove window from the master area
+                    "SUPER, M, layoutmsg, addmaster"
+                    "SUPER SHIFT, M, layoutmsg, removemaster"
+
+                    # change master split ratio
+                    "SUPER CTRL SHIFT, H, layoutmsg, mfact -0.2"
+                    "SUPER CTRL SHIFT, L, layoutmsg, mfact +0.2"
+
+                    # rotate orientation of master
+                    "SUPER SHIFT, H, layoutmsg, orientationprev"
+                    "SUPER SHIFT, L, layoutmsg, orientationnext"
+
                     (mvfocus "h" "l")
                     (mvfocus "j" "d")
                     (mvfocus "k" "u")
