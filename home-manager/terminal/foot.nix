@@ -1,6 +1,6 @@
 { pkgs, ... }: {
     home.packages = with pkgs; [
-        nerdfonts
+        (nerdfonts.override { fonts = [ "Hack" ]; })
         libsixel
     ];
 

@@ -5,6 +5,7 @@
         lzip
         ffmpeg
         aria2
+        jetbrains.idea-community
 
         # image
         gimp
