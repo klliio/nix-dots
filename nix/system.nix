@@ -26,6 +26,9 @@
         intel-media-driver
     ];
 
+    hardware.enableRedistributableFirmware = true;
+    hardware.enableAllFirmware = true;
+
     # Enable flakes
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
