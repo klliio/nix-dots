@@ -19,6 +19,7 @@
         packages = with pkgs; [
             unzip
             rar
+            p7zip
 
             gtk3
             gtk4
@@ -27,6 +28,9 @@
 
             prismlauncher
             gamemode
+
+            wineWowPackages.waylandFull # 32 and 64
+            winetricks
         ];
     };
 
