@@ -49,6 +49,8 @@
         wget
         git
         cifs-utils
+        wineWowPackages.waylandFull # 32 and 64
+        winetricks
     ];
 
     # Enable the OpenSSH daemon.
