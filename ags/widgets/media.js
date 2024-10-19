@@ -78,7 +78,7 @@ export const MediaLabel = ({ player_num = Variable(0) }) =>
                     updateLabel(player_num.value, self)
                 );
                 self.poll(media.bar.rotate_freq, (self) => {
-                    if (mpris.players.length === 0) return;
+                    if (mpris.players.length <= 1) return;
 
                     if (player_num.value < mpris.players.length - 1) {
                         player_num.value += 1;
