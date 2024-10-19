@@ -21,7 +21,7 @@ function Left() {
         children: [
             BatteryIndicator(),
             Seperator({ vertical: true }),
-            MediaLabel(),
+            MediaLabel({}),
         ],
     });
 }

@@ -98,6 +98,7 @@ export default {
         },
         bar: {
             width: 30,
+            rotate_freq: 25_000,
         },
         preferred: 'spotify',
     },

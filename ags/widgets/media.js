@@ -6,6 +6,7 @@ import { icon } from '../utils.js';
 const { icons, media, theme, placeholders } = Options;
 const players = mpris.bind('players');
 const label_reveal = Variable(false);
+var timer;
 
 function lengthStr(length) {
     const min = Math.floor(length / 60);
@@ -19,41 +20,74 @@ function lengthStr(length) {
     return `${min}:${sec0}${sec}`;
 }
 
-export const MediaLabel = () =>
-    Widget.Button({
-        on_primary_click: () => App.toggleWindow(media.name),
-        child: Widget.Box({
-            spacing: 8,
-            children: [
-                Widget.Revealer({
-                    reveal_child: label_reveal.bind(),
-                    transition: 'slide_right',
-                    transition_duration: theme.transitionDuration,
-                    child: Widget.Label({
-                        truncate: 'end',
-                        max_width_chars: media.bar.width,
-                    }).hook(mpris, (self) => {
-                        const player =
-                            mpris.getPlayer(media.preferred) ||
-                            mpris.getPlayer();
-                        if (!player || media.play_back_status === 'Stopped') {
-                            label_reveal.value = false;
-                            return;
-                        }
-                        label_reveal.value = true;
-                        self.label =
-                            player?.track_title + ' - ' + player?.track_artists;
-                    }),
-                }),
-                Widget.Revealer({
-                    reveal_child: label_reveal.bind().as((b) => !b),
-                    transition: 'slide_left',
-                    transition_duration: theme.transitionDuration,
-                    child: Widget.Label({
-                        label: placeholders[0],
-                    }),
-                }),
-            ],
+function updateLabel(player_num, self) {
+    clearTimeout(timer);
+    self.reveal_child = false;
+
+    // check if player_num is within a valid range
+    if (mpris.players.length <= player_num && player_num < 0) {
+        player_num = 0;
+    }
+
+    const player = mpris.players[player_num];
+
+    // set label to a placeholder if there is no playback
+    if (!player || player.play_back_status === 'Stopped') {
+        self.child.label = placeholders[0];
+    } else {
+        self.child.label = player?.track_title + ' - ' + player?.track_artists;
+    }
+
+    // delay for revealer
+    timer = setTimeout(
+        () => (self.reveal_child = true),
+        theme.transitionDuration + 200
+    );
+}
+
+export const MediaLabel = ({ player_num = Variable(0) }) =>
+    Widget.EventBox({
+        on_primary_click: () => {
+            if (player_num.value < mpris.players.length - 1) {
+                player_num.value += 1;
+            } else {
+                player_num.value = 0;
+            }
+        },
+        on_secondary_click: () => {
+            if (player_num.value > 0) {
+                player_num.value -= 1;
+            } else {
+                player_num.value = mpris.players.length - 1;
+            }
+        },
+        child: Widget.Revealer({
+            transition: 'slide_right',
+            transition_duration: theme.transitionDuration,
+            child: Widget.Label({
+                truncate: 'end',
+                max_width_chars: media.bar.width,
+            }),
+            setup: (self) => {
+                self.hook(
+                    mpris,
+                    (self) => updateLabel(player_num.value, self),
+                    'player-changed'
+                );
+                self.hook(player_num, (self) =>
+                    updateLabel(player_num.value, self)
+                );
+                self.poll(media.bar.rotate_freq, (self) => {
+                    if (mpris.players.length === 0) return;
+
+                    if (player_num.value < mpris.players.length - 1) {
+                        player_num.value += 1;
+                    } else {
+                        player_num.value = 0;
+                    }
+                    updateLabel(player_num.value, self);
+                });
+            },
         }),
     });
 
