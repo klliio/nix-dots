@@ -70,11 +70,6 @@
                     force_default_wallpaper = 1;
                 };
 
-                device = {
-                    name = "microsoft-microsoft-3-button-mouse-with-intellieye(tm)";
-                    sensitivity = 0.3;
-                };
-
                 input = {
                     kb_layout = "gb";
                     repeat_delay = 250;
@@ -86,8 +81,8 @@
                         disable_while_typing = true;
                         drag_lock = true;
                     };
-                    sensitivity = 0.3;
                     accel_profile = "flat";
+                    sensitivity = 0.5;
                     numlock_by_default = true;
                     float_switch_override_focus = 2;
                 };
@@ -202,5 +197,15 @@
                     enabled = "no";
                 };
         };
+        extraConfig = ''
+            device {
+                name=microsoft-microsoft-3-button-mouse-with-intellieye(tm)
+                sensitivity=-0.2
+            }
+            device {
+                name=logitech-usb-optical-mouse
+                sensitivity=-0.2
+            }
+        '';
 	};
 }

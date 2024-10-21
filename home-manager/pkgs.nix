@@ -22,5 +22,6 @@
         nautilus
         firefox
         pavucontrol
+        tigervnc
     ];
 }
