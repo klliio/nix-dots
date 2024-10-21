@@ -32,9 +32,10 @@ function updateLabel(player_num, self) {
     const player = mpris.players[player_num];
 
     // set label to a placeholder if there is no playback
-    if (!player || player.play_back_status === 'Stopped') {
+    if (player.play_back_status !== 'Playing') {
         self.child.label = placeholders[0];
     } else {
+        print(player.play_back_status);
         self.child.label = player?.track_title + ' - ' + player?.track_artists;
     }
 
