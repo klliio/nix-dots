@@ -5,7 +5,8 @@
         lzip
         ffmpeg
         aria2
-        jetbrains.idea-community
+        jq
+        wireguard-tools
 
         # image
         gimp
@@ -23,5 +24,6 @@
         firefox
         pavucontrol
         tigervnc
+        jetbrains.idea-community
     ];
 }
