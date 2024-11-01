@@ -35,7 +35,6 @@ function updateLabel(player_num, self) {
     if (player.play_back_status !== 'Playing') {
         self.child.label = placeholders[0];
     } else {
-        print(player.play_back_status);
         self.child.label = player?.track_title + ' - ' + player?.track_artists;
     }
 
