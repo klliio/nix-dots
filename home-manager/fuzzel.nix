@@ -7,10 +7,11 @@
                 terminal = "${pkgs.foot}/bin/foot";
                 layer = "overlay";
                 icons-enabled = false;
+                prompt = "(>^-^)> ";
                 fuzzy = true;
                 anchor = "center";
-                lines = 12;
-                width = 20;
+                lines = 14;
+                width = 22;
                 exit-on-keyboard-focus-loss = true;
             };
             border = {
