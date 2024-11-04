@@ -19,7 +19,7 @@
         puddletag
         loudgain
 
-        # general
+        # userland
         nautilus
         firefox
         pavucontrol
