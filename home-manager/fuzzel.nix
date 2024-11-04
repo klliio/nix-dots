@@ -15,7 +15,7 @@
                 exit-on-keyboard-focus-loss = true;
             };
             border = {
-                width = 5;
+                width = 4;
                 radius = 0;
             };
         };
