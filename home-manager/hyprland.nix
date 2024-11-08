@@ -70,6 +70,7 @@
                     force_default_wallpaper = 1;
                 };
 
+                # per device config at the bottom of the file
                 input = {
                     kb_layout = "gb";
                     repeat_delay = 250;
@@ -201,7 +202,7 @@
         extraConfig = ''
             device {
                 name=microsoft-microsoft-3-button-mouse-with-intellieye(tm)
-                sensitivity=-0.3
+                sensitivity=0.2
             }
             device {
                 name=logitech-usb-optical-mouse
