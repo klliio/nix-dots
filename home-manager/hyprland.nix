@@ -82,6 +82,7 @@
                         drag_lock = true;
                     };
                     accel_profile = "flat";
+                    scroll_factor = 2.0;
                     sensitivity = 0.5;
                     numlock_by_default = true;
                     float_switch_override_focus = 2;
@@ -200,7 +201,7 @@
         extraConfig = ''
             device {
                 name=microsoft-microsoft-3-button-mouse-with-intellieye(tm)
-                sensitivity=-0.2
+                sensitivity=-0.3
             }
             device {
                 name=logitech-usb-optical-mouse
