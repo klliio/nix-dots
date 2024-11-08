@@ -33,14 +33,23 @@
         };
     in {
         nixosConfigurations = {
-            ${userInfo.username} = nixpkgs.lib.nixosSystem {
+            mini = nixpkgs.lib.nixosSystem {
                 inherit system;
                 specialArgs = { inherit inputs userInfo; };
                 modules = [
                     inputs.home-manager.nixosModules.home-manager
-                    ./nix/nixos.nix
+                    ./nix/mini.nix
                 ];
             };
+            laptop = nixpkgs.lib.nixosSystem {
+                inherit system;
+                specialArgs = { inherit inputs userInfo; };
+                modules = [
+                    inputs.home-manager.nixosModules.home-manager
+                    ./nix/laptop.nix
+                ];
+            };
+
         };
     };
 }

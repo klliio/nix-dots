@@ -1,6 +1,5 @@
 { pkgs, inputs, userInfo, ... }: {
     imports = [
-        ./hardware.nix
         ./system.nix
         ./boot.nix
         ./audio.nix
