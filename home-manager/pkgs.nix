@@ -7,6 +7,7 @@
         aria2
         jq
         wireguard-tools
+        qbittorrent
 
         # image
         gimp
