@@ -3,11 +3,23 @@
     home.packages = with pkgs; [
         python3
         lzip
-        ffmpeg
-        aria2
         jq
         wireguard-tools
         qbittorrent
+        gtk3
+        gtk4
+
+        # cli
+        rename
+        ffmpeg
+        aria2
+
+        # game
+        prismlauncher
+        gamemode
+        gamescope
+        wineWowPackages.waylandFull # 32 and 64
+        winetricks
 
         # image
         gimp

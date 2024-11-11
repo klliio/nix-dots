@@ -15,6 +15,7 @@
             adblock
             hidePodcasts
             shuffle
+            oneko
         ];
 
         colorScheme = "custom";

@@ -15,23 +15,6 @@
         sessionPath = [
             "$HOME/.local/bin"
         ];
-
-        packages = with pkgs; [
-            unzip
-            rar
-            p7zip
-
-            gtk3
-            gtk4
-
-            rename
-
-            prismlauncher
-            gamemode
-
-            wineWowPackages.waylandFull # 32 and 64
-            winetricks
-        ];
     };
 
     programs.home-manager.enable = true;

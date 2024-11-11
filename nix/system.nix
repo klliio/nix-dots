@@ -49,6 +49,10 @@
         wget
         git
         cifs-utils
+
+        unzip
+        rar
+        p7zip
     ];
 
     # Enable the OpenSSH daemon.
