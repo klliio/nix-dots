@@ -51,8 +51,8 @@ function Right() {
     });
 }
 
-function BarWindow() {
-    return Widget.Window({
+export default () =>
+    Widget.Window({
         name: WINDOW_NAME, // name has to be unique
         layer: 'bottom',
         margins: [0, 0, 0, 0], // [top, right, bottom, left]
@@ -73,11 +73,3 @@ function BarWindow() {
         \*                                            */
         setup: (self) => self.on('leave-notify-event', () => {}),
     });
-}
-
-export default function () {
-    App.addWindow(BarWindow());
-    Utils.timeout(100, () => {
-        App.openWindow(WINDOW_NAME);
-    });
-}

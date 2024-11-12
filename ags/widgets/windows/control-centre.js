@@ -35,7 +35,7 @@ const Avatar = () =>
         vpack: 'center',
     });
 
-const ControlCentre = () =>
+export default () =>
     Popup({
         name: WINDOW_NAME,
         transition: theme.PopupTransition,
@@ -131,7 +131,3 @@ const ControlCentre = () =>
             ],
         }),
     });
-
-export default function () {
-    App.addWindow(ControlCentre());
-}
