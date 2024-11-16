@@ -68,6 +68,7 @@
                 misc = {
                     disable_splash_rendering = true;
                     force_default_wallpaper = 1;
+                    vrr = 2;
                 };
 
                 # per device config at the bottom of the file
