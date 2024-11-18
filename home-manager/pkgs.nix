@@ -34,7 +34,6 @@
 
         # userland
         nautilus
-        firefox
         pavucontrol
         tigervnc
         jetbrains.idea-community

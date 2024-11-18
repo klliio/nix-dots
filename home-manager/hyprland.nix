@@ -191,8 +191,8 @@
                 ];
 
                 decoration = {
-                    drop_shadow = "no";
                     dim_inactive = false;
+                    shadow.enabled = false;
                     blur.enabled = false;
                 };
 
