@@ -9,9 +9,6 @@
         nil
         clang
         bash-language-server
-        vscode-langservers-extracted
-        typescript
-        typescript-language-server
         jdt-language-server
         rust-analyzer
 
