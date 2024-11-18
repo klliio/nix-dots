@@ -32,7 +32,6 @@
             settings = {
                 "$MOD" = "SUPER";
                 exec-once = [
-                    "ags"
                     "mako"
                     "[workspace special:keepassxc silent] keepassxc"
                     # "[workspace special:obsidian silent] obsidian"
@@ -192,8 +191,8 @@
 
                 decoration = {
                     dim_inactive = false;
-                    shadow.enabled = false;
                     blur.enabled = false;
+                    # shadow.enabled = false;
                 };
 
                 animations = {
