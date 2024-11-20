@@ -11,7 +11,7 @@
         firefox-addons.inputs.nixpkgs.follows = "nixpkgs";
 
         # ags
-        ags.url = "github:Aylur/ags";
+        ags.url = "github:Aylur/ags/v1";
 
         # hyprland
         hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";

@@ -32,6 +32,7 @@
             settings = {
                 "$MOD" = "SUPER";
                 exec-once = [
+                    "ags"
                     "mako"
                     "[workspace special:keepassxc silent] keepassxc"
                     # "[workspace special:obsidian silent] obsidian"
