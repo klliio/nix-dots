@@ -19,6 +19,12 @@
       options = [ "noatime" ];
     };
 
+  fileSystems."/tmp" =
+    { device = "/tmp";
+      fsType = "tmpfs";
+      options = [ "noatime" ];
+    };
+
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/e9e038c6-52ec-43b7-9d49-d09e4780f2bf";
       fsType = "btrfs";

@@ -19,6 +19,12 @@
       options = [ "noatime" ];
     };
 
+  fileSystems."/tmp" =
+    { device = "/tmp";
+      fsType = "tmpfs";
+      options = [ "noatime" ];
+    };
+
   boot.initrd.luks.devices."NIXCRYPT".device = "/dev/disk/by-uuid/17033c83-f6db-4034-912f-d84948e0cb8e";
   boot.initrd.luks.devices."NIXCRYPT".bypassWorkqueues = true;
   boot.initrd.luks.devices."NIXCRYPT".allowDiscards = true;
