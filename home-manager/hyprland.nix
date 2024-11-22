@@ -83,7 +83,7 @@
                         drag_lock = true;
                     };
                     accel_profile = "flat";
-                    scroll_factor = 2.0;
+                    scroll_factor = 1.0;
                     sensitivity = 0.5;
                     numlock_by_default = true;
                     float_switch_override_focus = 2;
