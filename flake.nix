@@ -9,6 +9,15 @@
         # firefox extensions
         firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
         firefox-addons.inputs.nixpkgs.follows = "nixpkgs";
+         # ags/astal
+        astal = {
+            url = "github:aylur/astal";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
+        ags = {
+            url = "github:aylur/ags";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
 
         # hyprland
         hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
