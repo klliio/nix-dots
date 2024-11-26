@@ -19,10 +19,6 @@
                     path = "/home/${userInfo.username}/Obsidian";
                     devices = [ "pixel" ];
                 };
-                "Mihon" = {
-                    path = "/home/${userInfo.username}/Backups";
-                    devices = [ "pixel" ];
-                };
             };
         };
     };
