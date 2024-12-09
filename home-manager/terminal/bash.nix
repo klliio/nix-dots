@@ -21,7 +21,7 @@
 
           close = "\\[\\e[m\\]";
         };
-     
+
       misc = {
         downRight = "\\342\\224\\217";
         upRight = "\\342\\224\\227";
@@ -34,7 +34,7 @@
         "lsl" = "ls -l";
         "lsal" = "ls -al";
         "lsla" = "ls -al";
-  
+
         # alacritty
         "new" = "alacritty msg create-window --working-directory '$(pwd)'";
 
@@ -49,9 +49,12 @@
         "gl" = "git log";
 
         "suco" = "sudo";
+
+        # nix
+        "ns" = "nix-shell";
       };
     in {
-    programs.bash = { 
+    programs.bash = {
       enable = true;
       historyControl = ["ignoreboth" "erasedups"];
       inherit shellAliases;
