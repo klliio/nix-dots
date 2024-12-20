@@ -189,6 +189,11 @@
                     ",XF86AudioNext,        exec, ${playerctl} next"
                 ];
 
+                bindm = [
+                    "SUPER, mouse:272, movewindow"
+                    "SUPER, mouse:273, resizewindow"
+                ];
+
                 decoration = {
                     dim_inactive = false;
                     blur.enabled = false;
