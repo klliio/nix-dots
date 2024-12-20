@@ -174,8 +174,8 @@
                 ++ (map (i: mvtowssilent (toString i) (toString i)) arr);
 
                 bindle = [
-                    ",XF86MonBrightnessDown, exec, ${brightnessctl} set 5%-"
-                    ",XF86MonBrightnessUp,   exec, ${brightnessctl} set 5%+"
+                    ",XF86MonBrightnessDown, exec, ${brightnessctl} set 5%-" # not supported on all displays
+                    ",XF86MonBrightnessUp,   exec, ${brightnessctl} set 5%+" # ddc/ci displays can be used with extra config
                     ",XF86AudioMute,         exec, ${wpctl} set-mute @DEFAULT_AUDIO_SINK@ toggle"
                     ",XF86AudioLowerVolume,  exec, ${wpctl} set-volume @DEFAULT_AUDIO_SINK@ 5%-"
                     ",XF86AudioRaiseVolume,  exec, ${wpctl} set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
