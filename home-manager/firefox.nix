@@ -18,7 +18,7 @@
                     sponsorblock
                 ];
                 settings.extensions.autoDisableScopes = 0;
-                # userChrome = "${builtins.readFile ../firefox/userChrome.css}";
+                userChrome = "${builtins.readFile ../firefox/userChrome.css}";
                 # userContent = "${builtins.readFile ../firefox/userContent.css}";
                 extraConfig = "${builtins.readFile ../firefox/user.js}";
             };
