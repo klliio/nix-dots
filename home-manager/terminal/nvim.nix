@@ -105,6 +105,7 @@
                     p.tree-sitter-rust
                     p.tree-sitter-typescript
                     p.tree-sitter-javascript
+                    p.tree-sitter-vala
                 ]));
             }
         ];
