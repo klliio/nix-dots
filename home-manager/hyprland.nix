@@ -32,7 +32,8 @@
             settings = {
                 "$MOD" = "SUPER";
                 exec-once = [
-                    "mako"
+                    "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
+                    "${pkgs.mako}/bin/mako"
                     "[workspace special:keepassxc silent] keepassxc"
                     # "[workspace special:obsidian silent] obsidian"
                     # "[workspace special:spotify silent] spotify"
@@ -40,7 +41,7 @@
 
                 monitor = [
                     "eDP-1,1920x1080,auto,1"
-                    "HDMI-A-1,1920x1080,auto,1.2"
+                    "HDMI-A-1,1920x1080,auto,1"
                 ];
 
                 env = [
