@@ -34,6 +34,7 @@
                 exec-once = [
                     "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
                     "${pkgs.mako}/bin/mako"
+                    "systemctl --user restart pipewire.service" # fix bluetooth audio
                     "[workspace special:keepassxc silent] keepassxc"
                     # "[workspace special:obsidian silent] obsidian"
                     # "[workspace special:spotify silent] spotify"
