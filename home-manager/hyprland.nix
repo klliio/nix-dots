@@ -18,12 +18,24 @@
 	wayland.windowManager.hyprland =
         let
             hyprland = inputs.hyprland.packages.${pkgs.system}.hyprland;
-            playerctl = "${pkgs.playerctl}/bin/playerctl";
-            brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
+            colours = config.lib.stylix.colors;
+
+            # audio
             wpctl = "${pkgs.wireplumber}/bin/wpctl";
+            playerctl = "${pkgs.playerctl}/bin/playerctl";
+
+            # user
+            brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
+            applauncher = "${pkgs.fuzzel}/bin/fuzzel";
+            term = "${pkgs.foot}/bin/foot";
+
+            # screen capture
             screenshot = import ./scripts/screenshot.nix pkgs;
             screencapture = import ./scripts/screencapture.nix pkgs;
-            colours = config.lib.stylix.colors;
+
+            # utility
+            notification = "${pkgs.mako}/bin/mako";
+            polkit = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
         in {
             enable = true;
             systemd.enable = true;
@@ -32,12 +44,12 @@
             settings = {
                 "$MOD" = "SUPER";
                 exec-once = [
-                    "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
-                    "${pkgs.mako}/bin/mako"
+                    notification
+                    polkit
                     "systemctl --user restart pipewire.service" # fix bluetooth audio
                     "[workspace special:keepassxc silent] keepassxc"
-                    # "[workspace special:obsidian silent] obsidian"
-                    # "[workspace special:spotify silent] spotify"
+                    # "[workspace special:obsidian silent] ${obsidian}"
+                    # "[workspace special:spotify silent] ${spotify}"
                 ];
 
                 monitor = [
@@ -124,9 +136,9 @@
                     "SUPER SHIFT, Q, exit"
                     "SUPER, W, killactive"
 
-                    "SUPER, P, exec, ${pkgs.fuzzel}/bin/fuzzel"
+                    "SUPER, P, exec, ${applauncher}"
 
-                    "SUPER, RETURN, exec, ${pkgs.foot}/bin/foot"
+                    "SUPER, RETURN, exec, ${term}"
 
                     ",            PRINT, exec, ${screenshot} --quick"
                     "SUPER,       PRINT, exec, ${screenshot} --background ${colours.base00}80 --border ${colours.base0D}ff --select 00000000"
