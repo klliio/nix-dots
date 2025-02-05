@@ -20,6 +20,7 @@
         gamescope
         wineWowPackages.waylandFull # 32 and 64
         winetricks
+        protontricks
 
         # image
         gimp
