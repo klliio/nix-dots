@@ -23,7 +23,7 @@
             fonts = {
                 monospace = {
                     name = "Hack Nerd Font";
-                    package = pkgs.nerdfonts.override { fonts = [ "Hack" ]; };
+                    package = pkgs.nerd-fonts.hack;
                 };
                 sansSerif = {
                     name = "DejaVu Sans";
