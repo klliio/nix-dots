@@ -117,9 +117,11 @@
                     (f "pavucontrol")
                     (f "mpv")
                     (f "imv")
-                    "workspace special:spotify, title:(.*)(Spotify)(.*)"
+
+                    # workspace name is the same as cmd
+                    "workspace special:spotify, title:.*((?i)Spotify).*"
                     "workspace special:keepassxc, title:(.*)(KeePassXC)(.*)"
-                    "workspace special:obsidian, title:(.*)(Obsidian)(.*)"
+                    "workspace special:obsidian, title:.*((?i)Obsidian).*"
                 ];
 
                 bind = let
@@ -130,8 +132,14 @@
                     mvactive = binding "SUPER ALT" "moveactive";
                     mvtows = binding "SUPER CTRL SHIFT" "movetoworkspace";
                     mvtowssilent = binding "SUPER SHIFT" "movetoworkspacesilent";
-                    special = key: cmd: pid: arg: "SUPER SHIFT, ${key}, exec, pgrep ${arg} ${pid}  && hyprctl dispatch togglespecialworkspace ${cmd} || ${cmd} &";
                     arr = [1 2 3 4 5 6 7 8 9];
+
+                    # if hyprctl clients | grep special:${cmd}; then
+                    #     hyprctl dispatch togglespecialworkspace ${cmd}
+                    # else
+                    #     ${cmd} &
+                    # fi
+                    special = key: cmd: "SUPER SHIFT, ${key}, exec, if hyprctl clients | grep special:${cmd} ; then hyprctl dispatch togglespecialworkspace ${cmd} ; else ${cmd} & fi";
                 in [
                     "SUPER SHIFT, Q, exit"
                     "SUPER, W, killactive"
@@ -180,9 +188,11 @@
                     (mvactive "j" "0 20")
                     (mvactive "k" "0 -20")
                     (mvactive "l" "20 0")
-                    (special "O" "obsidian" "obsidian" "-f")
-                    (special "P" "keepassxc" "keepassxc-wrap" "")
-                    (special "S" "spotify" "spotify" "")
+
+                    # key | cmd
+                    (special "O" "obsidian")
+                    (special "P" "keepassxc")
+                    (special "S" "spotify")
                 ]
                 ++ (map (i: ws (toString i) (toString i)) arr)
                 ++ (map (i: mvtowssilent (toString i) (toString i)) arr);
