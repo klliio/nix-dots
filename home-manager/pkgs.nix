@@ -8,6 +8,7 @@
         qbittorrent
         gtk3
         gtk4
+        libnotify
 
         # cli
         rename
@@ -31,6 +32,7 @@
         # music
         nicotine-plus
         puddletag
+        beets
         loudgain
 
         # userland
