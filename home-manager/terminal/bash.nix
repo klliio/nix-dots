@@ -35,8 +35,8 @@
         "lsal" = "ls -al";
         "lsla" = "ls -al";
 
-        # alacritty
-        "new" = "alacritty msg create-window --working-directory '$(pwd)'";
+        # foot
+        "new" = "foot -D . &";
 
         # git
         "gp" = "git push";
