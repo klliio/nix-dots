@@ -14,6 +14,7 @@
         rename
         ffmpeg
         aria2
+        bc
 
         # game
         prismlauncher
