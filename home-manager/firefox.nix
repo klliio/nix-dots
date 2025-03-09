@@ -14,7 +14,6 @@
                     ublock-origin
                     firemonkey
                     keepassxc-browser
-                    simple-translate
                     sponsorblock
                 ];
                 settings.extensions.autoDisableScopes = 0;
