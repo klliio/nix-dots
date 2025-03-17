@@ -23,6 +23,7 @@
         wineWowPackages.waylandFull # 32 and 64
         winetricks
         protontricks
+        steamtinkerlaunch
 
         # image
         gimp
