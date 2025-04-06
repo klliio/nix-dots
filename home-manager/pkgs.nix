@@ -24,6 +24,7 @@
         winetricks
         protontricks
         steamtinkerlaunch
+        lutris
 
         # image
         gimp
