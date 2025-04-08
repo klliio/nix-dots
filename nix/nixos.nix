@@ -45,6 +45,7 @@
                 ../home-manager/terminal/btop.nix
                 ../home-manager/firefox.nix
                 ../home-manager/hyprland.nix
+                ../home-manager/hyprlock.nix
                 ../home-manager/gtk.nix
                 ../home-manager/spicetify.nix
                 ../home-manager/mako.nix
