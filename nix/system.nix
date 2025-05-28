@@ -10,6 +10,8 @@
         useXkbConfig = true; # use xkb.options in tty.
     };
 
+    security.polkit.enable = true;
+
     # Configure keymap in X11
     services.xserver.xkb.layout = "gb";
 
