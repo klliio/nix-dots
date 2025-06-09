@@ -74,6 +74,7 @@
         upower.enable = true;
         power-profiles-daemon.enable = true;
         accounts-daemon.enable = true;
+        flatpak.enable = true;
     };
 
     # automatic store

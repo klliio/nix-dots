@@ -9,6 +9,7 @@
         ./adb.nix
         ./tuigreet.nix
         ./syncthing.nix
+        ./hyprland.nix
     ];
 
     users.users.${userInfo.username} = {
