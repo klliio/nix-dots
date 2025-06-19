@@ -22,10 +22,6 @@
                 launch = "xdg-open \${url}";
                 label-letters = "sadfjklewcmpgh";
                 osc8-underline = "url-mode";
-                protocols = "https, https, ftp, ftps, file";
-                uri-characters = ''
-                    abcdefhijklmnopqrstuvwxyzABCDEFHIJKLMNOPQRSTUVWXYZ0123456789-_.,~:;/?\#@!$&%*+="'()[]
-                '';
             };
 
             cursor = {
