@@ -1,4 +1,4 @@
-{ pkgs, inputs, userInfo, ... }: {
+{ pkgs, inputs, userInfo, lib, ... }: {
     imports = [
         ./system.nix
         ./boot.nix

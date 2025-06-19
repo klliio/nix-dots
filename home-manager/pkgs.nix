@@ -15,6 +15,7 @@
         ffmpeg
         aria2
         bc
+        flatpak
 
         # game
         prismlauncher

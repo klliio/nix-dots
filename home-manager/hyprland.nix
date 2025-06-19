@@ -112,9 +112,8 @@
                 };
 
                 windowrule = let
-                    f = regex: "float, ^(${regex})$";
+                    f = regex: "float, initialClass:^(${regex})$";
                 in [
-                    (f "org.gnome.Calculator")
                     (f "pavucontrol")
                     (f "mpv")
                     (f "imv")

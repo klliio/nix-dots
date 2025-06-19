@@ -10,19 +10,18 @@
         useXkbConfig = true; # use xkb.options in tty.
     };
 
-    security.polkit.enable = true;
 
     # Configure keymap in X11
     services.xserver.xkb.layout = "gb";
 
-    # Enable bluetooth
+    # bluetooth
     hardware.bluetooth = {
         enable = true;
         powerOnBoot = true;
         settings.General.Experimental = true; # for gnome-bluetooth percentage
     };
 
-    # Enable opengl
+    # opengl
     hardware.graphics.enable = true;
     hardware.graphics.extraPackages = with pkgs; [
         intel-media-driver
@@ -31,7 +30,7 @@
     hardware.enableRedistributableFirmware = true;
     hardware.enableAllFirmware = true;
 
-    # Enable flakes
+    # flakes
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
     # List installed packages
@@ -62,19 +61,11 @@
         openssh.enable = true;
         printing.enable = true;
         libinput.enable = true;
+        flatpak.enable = true;
 
         # btrfs
         btrfs.autoScrub.enable = true;
         fstrim.enable = true;
-
-        # hyprland
-        gvfs.enable = true;
-        devmon.enable = true;
-        udisks2.enable = true;
-        upower.enable = true;
-        power-profiles-daemon.enable = true;
-        accounts-daemon.enable = true;
-        flatpak.enable = true;
     };
 
     # automatic store
