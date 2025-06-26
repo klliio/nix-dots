@@ -26,6 +26,7 @@
         protontricks
         steamtinkerlaunch
         lutris
+        openttd-jgrpp
 
         # image
         gimp
