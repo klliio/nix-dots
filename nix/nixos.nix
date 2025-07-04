@@ -39,21 +39,7 @@
             home.homeDirectory = "/home/${userInfo.username}";
             imports = [
                 ./home.nix
-                ../home-manager/terminal/foot.nix
-                ../home-manager/terminal/nvim.nix
-                ../home-manager/terminal/bash.nix
-                ../home-manager/terminal/git.nix
-                ../home-manager/terminal/btop.nix
-                ../home-manager/firefox.nix
-                ../home-manager/hyprland.nix
-                ../home-manager/hyprlock.nix
-                ../home-manager/gtk.nix
-                ../home-manager/spicetify.nix
-                ../home-manager/mako.nix
-                ../home-manager/fuzzel.nix
-                ../home-manager/pkgs.nix
-                ../home-manager/weechat.nix
-                ../home-manager/ags.nix
+                ../home-manager
             ];
         };
     };
