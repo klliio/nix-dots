@@ -10,6 +10,7 @@
         ./tuigreet.nix
         ./syncthing.nix
         ./hyprland.nix
+        ./makima.nix
     ];
 
     users.users.${userInfo.username} = {
@@ -20,6 +21,7 @@
             "wheel"
             "audio"
             "video"
+            "input"
         ];
     };
     nixpkgs.config = {
