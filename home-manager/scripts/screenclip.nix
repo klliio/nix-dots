@@ -29,8 +29,6 @@ pkgs.writeShellScript "screenclip" ''
     fi
 
     if [ $save = true ]; then
-        pidof -q gpu-screen-recorder && ${notify-send} -t 1500 -u low -- "GPU Screen Recorder" "Not running"
-
         ${killall} -SIGUSR1 gpu-screen-recorder && sleep 0.5 && ${notify-send} -t 1500 -u low -- "GPU Screen Recorder" "Saving replay"
         exit 0
     fi
