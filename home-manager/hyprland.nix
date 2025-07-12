@@ -32,6 +32,7 @@
             # screen capture
             screenshot = import ./scripts/screenshot.nix pkgs;
             screencapture = import ./scripts/screencapture.nix pkgs;
+            screenclip = import ./scripts/screenclip.nix pkgs;
 
             # utility
             notification = "${pkgs.mako}/bin/mako";
@@ -148,9 +149,11 @@
 
                     "SUPER, RETURN, exec, ${term}"
 
-                    ",            PRINT, exec, ${screenshot} --quick"
-                    "SUPER,       PRINT, exec, ${screenshot} --background ${colours.base00}80 --border ${colours.base0D}ff --select 00000000"
-                    "SUPER SHIFT, PRINT, exec, ${screencapture} --background ${colours.base00}80 --border ${colours.base0D}ff --select 00000000"
+                    ",                  PRINT, exec, ${screenshot} --quick"
+                    "SUPER,             PRINT, exec, ${screenshot} --background ${colours.base00}80 --border ${colours.base0D}ff --select 00000000"
+                    "SUPER CONTROL,     PRINT, exec, ${screencapture} --background ${colours.base00}80 --border ${colours.base0D}ff --select 00000000"
+                    "SUPER SHIFT,       PRINT, exec, ${screenclip} --save"
+                    "SUPER CONTROL SHIFT,    PRINT, exec, ${screenclip}"
 
                     "SUPER,       F, fullscreen"
                     "SUPER SHIFT, F, togglefloating"
