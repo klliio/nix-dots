@@ -2,14 +2,23 @@
     pkgs,
     inputs,
     userInfo,
+    config,
     ...
 }:
 {
     imports = [ inputs.stylix.nixosModules.stylix ];
 
     config = {
+    environment.systemPackages = with pkgs; [
+        papirus-icon-theme
+    ];
         stylix = {
+            homeManagerIntegration = {
+                autoImport = true;
+                followSystem = true;
+            };
             enable = true;
+            autoEnable = true;
 
             base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
             image = userInfo.wallpaper;
