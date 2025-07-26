@@ -33,6 +33,7 @@
         inkscape
         imv
         mpv
+        blender
 
         # music
         nicotine-plus
