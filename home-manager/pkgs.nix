@@ -34,6 +34,7 @@
         imv
         mpv
         blender
+        kicad
 
         # music
         nicotine-plus
