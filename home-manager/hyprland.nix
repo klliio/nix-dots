@@ -35,6 +35,7 @@
             screenclip = import ./scripts/screenclip.nix pkgs;
 
             # utility
+            hyprlock = "${pkgs.hyprlock}/bin/hyprlock";
             notification = "${pkgs.mako}/bin/mako";
             polkit = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
         in {
@@ -148,6 +149,8 @@
                     "SUPER, P, exec, ${applauncher}"
 
                     "SUPER, RETURN, exec, ${term}"
+
+                    ", Scroll_Lock,  exec, ${hyprlock}"
 
                     ",                  PRINT, exec, ${screenshot} --quick"
                     "SUPER,             PRINT, exec, ${screenshot} --background ${colours.base00}80 --border ${colours.base0D}ff --select 00000000"

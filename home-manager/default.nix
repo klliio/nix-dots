@@ -5,6 +5,7 @@
     ./firefox.nix
     ./hyprland.nix
     ./hyprlock.nix
+    ./hypridle.nix
     ./spicetify.nix
     ./mako.nix
     ./fuzzel.nix
