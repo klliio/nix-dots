@@ -41,6 +41,7 @@
         puddletag
         beets
         loudgain
+        lrcget
 
         # userland
         nautilus
