@@ -27,6 +27,7 @@
         steamtinkerlaunch
         lutris
         openttd-jgrpp
+        mangohud
 
         # image
         gimp
