@@ -28,6 +28,7 @@
         lutris
         openttd-jgrpp
         mangohud
+        unigine-superposition
 
         # image
         gimp
