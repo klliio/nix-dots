@@ -11,6 +11,7 @@
         ./syncthing.nix
         ./hyprland.nix
         ./makima.nix
+        ./vpn.nix
     ];
 
     users.users.${userInfo.username} = {
