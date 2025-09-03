@@ -24,7 +24,6 @@
         wineWowPackages.waylandFull # 32 and 64
         winetricks
         protontricks
-        steamtinkerlaunch
         lutris
         openttd-jgrpp
         mangohud
