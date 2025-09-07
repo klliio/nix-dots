@@ -9,6 +9,7 @@
         gtk3
         gtk4
         libnotify
+        dotnetCorePackages.sdk_9_0-bin
 
         # cli
         rename
