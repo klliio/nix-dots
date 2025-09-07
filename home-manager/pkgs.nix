@@ -49,5 +49,6 @@
         pavucontrol
         tigervnc
         jetbrains.idea-community
+        vscode-fhs
     ];
 }
