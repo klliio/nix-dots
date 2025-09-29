@@ -12,6 +12,7 @@
   boot.initrd.kernelModules = [ "amdgpu" ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
+  boot.kernelParams = [ "amd_pstate=guided" ];
 
   fileSystems."/media" =
     { device = "/media";
