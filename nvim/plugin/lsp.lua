@@ -29,7 +29,8 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 require("neodev").setup()
-require("lspconfig").lua_ls.setup({
+vim.lsp.enable("lua_ls")
+vim.lsp.config("lua_ls", {
 	on_attach,
 	capabilities = capabilities,
 	root_dir = function()
@@ -44,37 +45,44 @@ require("lspconfig").lua_ls.setup({
 	},
 })
 
-require("lspconfig").nil_ls.setup({
+vim.lsp.enable("nil_ls")
+vim.lsp.config("nil_ls", {
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
 
-require("lspconfig").bashls.setup({
+vim.lsp.enable("bashls")
+vim.lsp.config("bashls", {
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
 
-require("lspconfig").cssls.setup({
+vim.lsp.enable("cssls")
+vim.lsp.config("cssls", {
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
 
-require("lspconfig").ts_ls.setup({
+vim.lsp.enable("ts_ls")
+vim.lsp.config("ts_ls", {
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
 
-require("lspconfig").jdtls.setup({
+vim.lsp.enable("jdtls")
+vim.lsp.config("jdtls", {
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
 
-require("lspconfig").rust_analyzer.setup({
+vim.lsp.enable("rust_analyzer")
+vim.lsp.config("rust_analyzer", {
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
 
-require("lspconfig").vala_ls.setup({
+vim.lsp.enable("vala_ls")
+vim.lsp.config("vala_ls", {
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
