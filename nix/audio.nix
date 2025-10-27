@@ -13,7 +13,7 @@
           "bluetooth.autoswitch-to-headset-profile" = false;
         };
       };
-
+      # disable dualshock 4 speaker/microphone
       "disable-devices" = {
         "monitor.alsa.rules" = [
           {
