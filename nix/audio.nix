@@ -7,6 +7,13 @@
     pulse.enable = true;
     wireplumber.enable = true;
     wireplumber.extraConfig = {
+      # disable bluetooth codec switching
+      "11-bluetooth-policy" = {
+        "wireplumber.settings" = {
+          "bluetooth.autoswitch-to-headset-profile" = false;
+        };
+      };
+
       "disable-devices" = {
         "monitor.alsa.rules" = [
           {
