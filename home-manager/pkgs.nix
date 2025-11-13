@@ -51,5 +51,6 @@
         tigervnc
         jetbrains.idea-community
         vscode-fhs
+        filezilla
     ];
 }
