@@ -11,7 +11,6 @@
         foot
         keepassxc
         obsidian
-        # spotify /* added by spicetify */
     ];
 
 
@@ -49,9 +48,6 @@
                     notification
                     polkit
                     "systemctl --user restart pipewire.service" # fix bluetooth audio
-                    "[workspace special:keepassxc silent] keepassxc"
-                    # "[workspace special:obsidian silent] ${obsidian}"
-                    # "[workspace special:spotify silent] ${spotify}"
                 ];
 
                 monitor = [
@@ -122,7 +118,6 @@
                     (f "imv")
 
                     # workspace name is the same as cmd
-                    "workspace special:spotify, match:title .*((?i)Spotify).*"
                     "workspace special:keepassxc, match:title (.*)(KeePassXC)(.*)"
                     "workspace special:obsidian, match:title .*((?i)Obsidian).*"
                 ];
@@ -199,7 +194,6 @@
                     # key | cmd
                     (special "O" "obsidian")
                     (special "P" "keepassxc")
-                    (special "S" "spotify")
                 ]
                 ++ (map (i: ws (toString i) (toString i)) arr)
                 ++ (map (i: mvtowssilent (toString i) (toString i)) arr);
