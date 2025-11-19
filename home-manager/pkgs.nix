@@ -29,6 +29,8 @@
         openttd-jgrpp
         mangohud
         unigine-superposition
+        lsfg-vk
+        lsfg-vk-ui
 
         # image
         gimp
