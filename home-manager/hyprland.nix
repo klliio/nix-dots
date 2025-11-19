@@ -115,16 +115,16 @@
                 };
 
                 windowrule = let
-                    f = regex: "float, initialClass:^(${regex})$";
+                    f = regex: "match:initial_class ^(${regex})$, float on";
                 in [
                     (f "pavucontrol")
                     (f "mpv")
                     (f "imv")
 
                     # workspace name is the same as cmd
-                    "workspace special:spotify, title:.*((?i)Spotify).*"
-                    "workspace special:keepassxc, title:(.*)(KeePassXC)(.*)"
-                    "workspace special:obsidian, title:.*((?i)Obsidian).*"
+                    "workspace special:spotify, match:title .*((?i)Spotify).*"
+                    "workspace special:keepassxc, match:title (.*)(KeePassXC)(.*)"
+                    "workspace special:obsidian, match:title .*((?i)Obsidian).*"
                 ];
 
                 bind = let
