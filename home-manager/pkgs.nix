@@ -54,5 +54,6 @@
         jetbrains.idea-community
         vscode-fhs
         filezilla
+        uget
     ];
 }

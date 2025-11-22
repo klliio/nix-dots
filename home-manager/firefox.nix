@@ -5,6 +5,7 @@
 
 	programs.firefox =  {
         enable = true;
+        nativeMessagingHosts = with pkgs; [ uget-integrator ];
         profiles = {
             ${userInfo.username} = {
                 id = 0;
