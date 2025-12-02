@@ -27,6 +27,7 @@
         protontricks
         lutris
         openttd-jgrpp
+        rpcs3
         mangohud
         unigine-superposition
         lsfg-vk
