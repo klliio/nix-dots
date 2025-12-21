@@ -12,6 +12,7 @@
         ./hyprland.nix
         ./makima.nix
         ./vpn.nix
+        ./appimage.nix
     ];
 
     users.users.${userInfo.username} = {
