@@ -18,6 +18,7 @@
         aria2
         bc
         flatpak
+        ncdu
 
         # game
         prismlauncher
