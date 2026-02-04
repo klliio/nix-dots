@@ -22,6 +22,7 @@
 
         # game
         prismlauncher
+        graalvmPackages.graalvm-oracle
         gamemode
         gamescope
         wineWowPackages.waylandFull # 32 and 64
