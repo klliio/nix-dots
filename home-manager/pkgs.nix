@@ -11,7 +11,6 @@
         gtk4
         libnotify
         dotnetCorePackages.sdk_9_0-bin
-        ydotool
 
         # cli
         rename

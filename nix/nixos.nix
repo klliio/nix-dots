@@ -13,6 +13,7 @@
         ./makima.nix
         ./vpn.nix
         ./appimage.nix
+        ./ydotool.nix
     ];
 
     users.users.${userInfo.username} = {
