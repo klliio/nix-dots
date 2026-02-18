@@ -71,6 +71,7 @@
             cmp_luasnip
             cmp-nvim-lsp
             luasnip
+            plenary-nvim
 
             # navigation
             {
@@ -107,6 +108,8 @@
                     p.tree-sitter-javascript
                     p.tree-sitter-vala
                 ]));
+                type = "lua";
+                config = toFile ../../nvim/plugin/treesitter.lua;
             }
         ];
 
