@@ -6,7 +6,6 @@
         ./network.nix
         ./stylix.nix
         ./steam.nix
-        ./adb.nix
         ./tuigreet.nix
         ./syncthing.nix
         ./hyprland.nix

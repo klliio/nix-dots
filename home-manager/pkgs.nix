@@ -11,6 +11,7 @@
         gtk4
         libnotify
         dotnetCorePackages.sdk_9_0-bin
+        android-tools
 
         # cli
         rename
