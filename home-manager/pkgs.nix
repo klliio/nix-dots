@@ -56,7 +56,7 @@
         nautilus
         pavucontrol
         tigervnc
-        jetbrains.idea-community
+        jetbrains.idea-oss
         vscode-fhs
         filezilla
         uget
