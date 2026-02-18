@@ -104,7 +104,6 @@
                 };
 
                 master = {
-                    inherit_fullscreen = true;
                     orientation = "left";
                     new_on_top = true;
                     new_status = "master";
