@@ -87,6 +87,7 @@
                 # per device config at the bottom of the file
                 input = {
                     kb_layout = "gb";
+                    kb_options = "caps:none";
                     repeat_delay = 250;
                     repeat_rate = 50;
                     follow_mouse = true;
