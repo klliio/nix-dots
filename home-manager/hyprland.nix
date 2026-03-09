@@ -52,7 +52,7 @@
 
                 monitor = [
                     "eDP-1,1920x1080,auto,1"
-                    "HDMI-A-1,1920x1080,auto,1"
+                    "HDMI-A-1,1920x1080,auto,1, bitdepth, 10, cm, hdr, sdrbrightness, 1, sdrsaturation, 1.07"
                     "HDMI-A-2,1920x1080,auto,1,mirror, HDMI-A-1"
                     "HDMI-A-3,1920x1080,auto,1,mirror, HDMI-A-1"
                 ];
