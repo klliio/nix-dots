@@ -50,6 +50,7 @@
         wget
         git
         cifs-utils
+        nix-output-monitor
 
         unzip
         rar
