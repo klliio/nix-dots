@@ -29,6 +29,7 @@
         wineWowPackages.waylandFull # 32 and 64
         winetricks
         protontricks
+        protonplus
         lutris
         openttd-jgrpp
         rpcs3
