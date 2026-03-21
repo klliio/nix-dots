@@ -5,6 +5,7 @@
         nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
         home-manager.url = "github:nix-community/home-manager/master";
         home-manager.inputs.nixpkgs.follows = "nixpkgs";
+        nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
 
         # firefox extensions
         firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
@@ -45,6 +46,15 @@
                 modules = [
                     inputs.home-manager.nixosModules.home-manager
                     ./nix/mini.nix
+                    (
+                      { pkgs, ... }:
+                      {
+                      nixpkgs.overlays = [
+                          inputs.nix-cachyos-kernel.overlays.pinned
+                        ];
+
+                      }
+                    )
                 ];
             };
             laptop = nixpkgs.lib.nixosSystem {
