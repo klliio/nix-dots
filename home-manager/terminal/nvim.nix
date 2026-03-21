@@ -11,6 +11,7 @@
         bash-language-server
         jdt-language-server
         rust-analyzer
+        vscode-css-languageserver
 
         shfmt
         nixfmt-rfc-style
