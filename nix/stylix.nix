@@ -9,9 +9,6 @@
     imports = [ inputs.stylix.nixosModules.stylix ];
 
     config = {
-    environment.systemPackages = with pkgs; [
-        papirus-icon-theme
-    ];
         stylix = {
             homeManagerIntegration = {
                 autoImport = true;
@@ -27,6 +24,13 @@
                 name = "Bibata-Modern-Ice";
                 size = 24;
                 package = pkgs.bibata-cursors;
+            };
+
+            icons = {
+                package = pkgs.papirus-icon-theme;
+                enable = true;
+                dark = "Papirus-Dark";
+                light = "Papirus-Light";
             };
 
             fonts = {
@@ -63,7 +67,7 @@
             targets = {
                 nixos-icons.enable = true;
                 gtk.enable = true;
-                grub.enable = true;
+                limine.enable = true;
                 gnome.enable = true;
             };
         };
