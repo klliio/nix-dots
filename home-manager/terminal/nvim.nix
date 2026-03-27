@@ -13,6 +13,7 @@
         rust-analyzer
         vscode-css-languageserver
         vala-language-server
+        typescript-language-server
 
         shfmt
         nixfmt-rfc-style
