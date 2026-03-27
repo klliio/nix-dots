@@ -26,7 +26,6 @@
         graalvmPackages.graalvm-oracle
         gamemode
         gamescope
-        wineWowPackages.waylandFull # 32 and 64
         winetricks
         protontricks
         protonplus
