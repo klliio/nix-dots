@@ -39,7 +39,6 @@
 
         # image
         gimp
-        inkscape
         imv
         mpv
         blender
