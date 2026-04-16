@@ -12,5 +12,6 @@
     ./weechat.nix
     ./ags.nix
     ./stylix.nix
+    ./gtk.nix
   ];
 }

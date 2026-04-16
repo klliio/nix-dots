@@ -3,6 +3,7 @@ let
 in {
     programs.git = {
         enable = true;
+        signing.format = null;
         settings = {
             color.ui = true;
             core.editor = "nvim";
