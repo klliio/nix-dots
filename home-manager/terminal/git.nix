@@ -3,13 +3,13 @@ let
 in {
     programs.git = {
         enable = true;
-        extraConfig = {
+        settings = {
             color.ui = true;
             core.editor = "nvim";
             github.user = name;
             push.autoSetupRemote = true;
+            user.email = "111129234+klliio@users.noreply.github.com";
+            user.name = name;
         };
-        userEmail = "111129234+klliio@users.noreply.github.com";
-        userName = name;
     };
 }

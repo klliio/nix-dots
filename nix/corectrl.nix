@@ -1,7 +1,8 @@
 {
   programs.corectrl = {
     enable = true;
-    gpuOverclock.enable = true;
-    gpuOverclock.ppfeaturemask = "0xffffffff";
   };
+
+  hardware.amdgpu.overdrive.enable = true;
+  hardware.amdgpu.overdrive.ppfeaturemask = "0xffffffff";
 }

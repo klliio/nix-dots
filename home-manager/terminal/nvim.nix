@@ -16,7 +16,7 @@
         typescript-language-server
 
         shfmt
-        nixfmt-rfc-style
+        nixfmt
         stylua
         prettierd
         rustfmt
@@ -117,7 +117,7 @@
         ];
 
 
-        extraLuaConfig = ''
+        initLua = ''
             ${builtins.readFile ../../nvim/options.lua}
             ${builtins.readFile ../../nvim/keymaps.lua}
             ${builtins.readFile ../../nvim/commands.lua}
