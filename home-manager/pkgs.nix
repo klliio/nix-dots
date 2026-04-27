@@ -53,6 +53,7 @@
 
         # userland
         nautilus
+        nautilus-open-any-terminal
         pavucontrol
         tigervnc
         jetbrains.idea-oss
