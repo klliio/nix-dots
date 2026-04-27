@@ -13,5 +13,6 @@
     ./ags.nix
     ./stylix.nix
     ./gtk.nix
+    ./prismlauncher.nix
   ];
 }

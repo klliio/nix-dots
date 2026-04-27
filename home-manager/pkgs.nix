@@ -22,8 +22,6 @@
         ncdu
 
         # game
-        prismlauncher
-        graalvmPackages.graalvm-oracle
         gamemode
         gamescope
         winetricks
