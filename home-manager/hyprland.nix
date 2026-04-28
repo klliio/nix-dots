@@ -71,7 +71,7 @@
                 };
 
                 cursor = {
-                    no_hardware_cursors = true;
+                    no_hardware_cursors = false;
                     enable_hyprcursor = true;
                     warp_on_change_workspace = true;
                 };
