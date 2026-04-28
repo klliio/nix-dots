@@ -105,7 +105,6 @@
                     size = "10%, 25";
                     outline_thickness = 0;
                     rounding = 0;
-                    dot_size = 0.8;
                     dots_center = false;
                     font_color = "rgba(147, 153, 178, 1.0)";
                     font_family = "monospace";
