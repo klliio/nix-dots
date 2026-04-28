@@ -22,18 +22,12 @@
         ncdu
 
         # game
-        gamemode
         gamescope
         winetricks
         protontricks
         protonplus
-        lutris
-        openttd-jgrpp
         rpcs3
         mangohud
-        unigine-superposition
-        lsfg-vk
-        lsfg-vk-ui
 
         # image
         gimp
