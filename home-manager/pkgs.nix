@@ -20,7 +20,7 @@
         bc
         flatpak
         ncdu
-        wine-wayland
+        wine64Packages.waylandFull
 
         # game
         gamescope
