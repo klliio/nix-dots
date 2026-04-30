@@ -20,6 +20,7 @@
         bc
         flatpak
         ncdu
+        wine-wayland
 
         # game
         gamescope
