@@ -3,6 +3,7 @@
         ./hardware/mini.nix
         ./nixos.nix
         ./corectrl.nix
+        ./opencl.nix
     ];
 
     networking.firewall.enable = false;
