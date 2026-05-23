@@ -6,6 +6,7 @@
         playerctl
         mako
         wl-clipboard
+        wl-mirror
 
         # user
         foot
@@ -32,6 +33,7 @@
             screenshot = import ./scripts/screenshot.nix pkgs;
             screencapture = import ./scripts/screencapture.nix pkgs;
             screenclip = import ./scripts/screenclip.nix pkgs;
+            screenmirror = "${pkgs.wl-mirror}/bin/wl-mirror";
 
             # utility
             hyprlock = "${pkgs.hyprlock}/bin/hyprlock";
@@ -51,7 +53,7 @@
                 ];
 
                 monitor = [
-                    "HDMI-A-1,2560x1440,auto,1, bitdepth, 10, cm, wide, sdrbrightness, 1, sdrsaturation, 1.07"
+                    "HDMI-A-1,2560x1440,auto,1, bitdepth, 10, cm, wide"
                     "HDMI-A-4,2560x1440,auto,1"
                 ];
 
@@ -158,11 +160,12 @@
 
                     ", Scroll_Lock,  exec, ${hyprlock}"
 
-                    ",                  PRINT, exec, ${screenshot} --quick"
-                    "SUPER,             PRINT, exec, ${screenshot} --background ${colours.base00}80 --border ${colours.base0D}ff --select 00000000"
-                    "SUPER CONTROL,     PRINT, exec, ${screencapture} --background ${colours.base00}80 --border ${colours.base0D}ff --select 00000000"
-                    "SUPER SHIFT,       PRINT, exec, ${screenclip} --save"
-                    "SUPER CONTROL SHIFT,    PRINT, exec, ${screenclip}"
+                    ",                    PRINT, exec, ${screenshot} --quick"
+                    "SUPER,               PRINT, exec, ${screenshot} --background ${colours.base00}80 --border ${colours.base0D}ff --select 00000000"
+                    "SUPER CONTROL,       PRINT, exec, ${screencapture} --background ${colours.base00}80 --border ${colours.base0D}ff --select 00000000"
+                    "SUPER SHIFT,         PRINT, exec, ${screenclip} --save"
+                    "SUPER CONTROL SHIFT, PRINT, exec, ${screenclip}"
+                    "SUPER,               M,     exec, ${screenmirror} HDMI-A-1"
 
                     "SUPER,       F, fullscreen"
                     "SUPER SHIFT, F, togglefloating"

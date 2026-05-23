@@ -21,7 +21,6 @@
         flatpak
         ncdu
         wine64Packages.waylandFull
-        wl-mirror
 
         # game
         gamescope
