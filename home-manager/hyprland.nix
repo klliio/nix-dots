@@ -52,7 +52,7 @@
 
                 monitor = [
                     "HDMI-A-1,2560x1440,auto,1, bitdepth, 10, cm, wide, sdrbrightness, 1, sdrsaturation, 1.07"
-                    "HDMI-A-4,2560x1440,auto,1,mirror, HDMI-A-1"
+                    "HDMI-A-4,2560x1440,auto,1"
                 ];
 
                 env = [
@@ -120,6 +120,18 @@
                     "workspace special:obsidian, match:title .*((?i)Obsidian).*"
                 ];
 
+                workspace = [
+                    "1,monitor:HDMI-A-1"
+                    "2,monitor:HDMI-A-1"
+                    "3,monitor:HDMI-A-1"
+                    "4,monitor:HDMI-A-1"
+                    "5,monitor:HDMI-A-1"
+                    "6,monitor:HDMI-A-1"
+                    "7,monitor:HDMI-A-1"
+                    "8,monitor:HDMI-A-1"
+                    "9,monitor:HDMI-A-1"
+                ];
+
                 bind = let
                     binding = mod: cmd: key: arg: "${mod}, ${key}, ${cmd}, ${arg}";
                     mvfocus = binding "SUPER" "movefocus";
@@ -128,7 +140,7 @@
                     mvactive = binding "SUPER ALT" "moveactive";
                     mvtows = binding "SUPER CTRL SHIFT" "movetoworkspace";
                     mvtowssilent = binding "SUPER SHIFT" "movetoworkspacesilent";
-                    arr = [1 2 3 4 5 6 7 8 9];
+                    arr = [1 2 3 4 5 6 7 8 9 0];
 
                     # if hyprctl clients | grep special:${cmd}; then
                     #     hyprctl dispatch togglespecialworkspace ${cmd}
