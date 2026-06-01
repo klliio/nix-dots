@@ -13,6 +13,7 @@
         ./vpn.nix
         ./appimage.nix
         ./ydotool.nix
+        ./platformio.nix
     ];
 
     users.users.${userInfo.username} = {
