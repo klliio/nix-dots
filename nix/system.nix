@@ -34,6 +34,8 @@
     # flakes
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+    programs.nix-ld.enable = true;
+
     # List installed packages
     environment.etc."current-system-packages".text =
       let
