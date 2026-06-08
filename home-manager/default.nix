@@ -1,7 +1,6 @@
 { ... }:
 {
   imports = [
-    ./terminal
     ./firefox.nix
     ./hyprland.nix
     ./hyprlock.nix
