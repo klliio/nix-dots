@@ -27,7 +27,6 @@
     hardware.graphics.enable32Bit = true;
     hardware.graphics.extraPackages = with pkgs; [
         intel-media-driver
-        amf
     ];
 
     hardware.enableRedistributableFirmware = true;
