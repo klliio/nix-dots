@@ -54,15 +54,6 @@
                     )
                 ];
             };
-            laptop = nixpkgs.lib.nixosSystem {
-                inherit system;
-                specialArgs = { inherit inputs userInfo; };
-                modules = [
-                    inputs.home-manager.nixosModules.home-manager
-                    ./nix/hosts/laptop.nix
-                ];
-            };
-
         };
     };
 }
