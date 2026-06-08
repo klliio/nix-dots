@@ -1,9 +1,7 @@
 { pkgs, inputs, userInfo, ... }: {
     imports = [
-        ./hardware/mini.nix
-        ./nixos.nix
-        ./corectrl.nix
-        ./opencl.nix
+        ./hardware.nix
+        ./../../nixos.nix
     ];
 
     networking.firewall.enable = false;
