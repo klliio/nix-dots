@@ -51,24 +51,24 @@
             {
                 plugin = indent-blankline-nvim;
                 type = "lua";
-                config = toFile ../../nvim/plugin/indent-blankline.lua;
+                config = toFile ../nvim/plugin/indent-blankline.lua;
             }
 
             # lsp
             {
                 plugin = nvim-lspconfig;
                 type = "lua";
-                config = toFile ../../nvim/plugin/lsp.lua;
+                config = toFile ../nvim/plugin/lsp.lua;
             }
             {
                 plugin = nvim-cmp;
                 type = "lua";
-                config = toFile ../../nvim/plugin/cmp.lua;
+                config = toFile ../nvim/plugin/cmp.lua;
             }
             {
                 plugin = conform-nvim;
                 type = "lua";
-                config = toFile ../../nvim/plugin/conform.lua;
+                config = toFile ../nvim/plugin/conform.lua;
             }
             neodev-nvim
             cmp_luasnip
@@ -80,7 +80,7 @@
             {
                 plugin = telescope-nvim;
                 type = "lua";
-                config = toFile ../../nvim/plugin/telescope.lua;
+                config = toFile ../nvim/plugin/telescope.lua;
             }
             telescope-fzf-native-nvim
 
@@ -88,12 +88,12 @@
             {
                 plugin = catppuccin-nvim;
                 type = "lua";
-                config = toFile ../../nvim/plugin/catppuccin.lua;
+                config = toFile ../nvim/plugin/catppuccin.lua;
             }
             {
                 plugin = lualine-nvim;
                 type = "lua";
-                config = toFile ../../nvim/plugin/lualine.lua;
+                config = toFile ../nvim/plugin/lualine.lua;
             }
             which-key-nvim
             nvim-web-devicons
@@ -112,15 +112,15 @@
                     p.tree-sitter-vala
                 ]));
                 type = "lua";
-                config = toFile ../../nvim/plugin/treesitter.lua;
+                config = toFile ../nvim/plugin/treesitter.lua;
             }
         ];
 
 
         initLua = ''
-            ${builtins.readFile ../../nvim/options.lua}
-            ${builtins.readFile ../../nvim/keymaps.lua}
-            ${builtins.readFile ../../nvim/commands.lua}
+            ${builtins.readFile ../nvim/options.lua}
+            ${builtins.readFile ../nvim/keymaps.lua}
+            ${builtins.readFile ../nvim/commands.lua}
         '';
     };
 }
