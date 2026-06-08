@@ -14,5 +14,10 @@
     ./stylix.nix
     ./gtk.nix
     ./prismlauncher.nix
+    ./foot.nix
+    ./nvim.nix
+    ./bash.nix
+    ./git.nix
+    ./btop.nix
   ];
 }
