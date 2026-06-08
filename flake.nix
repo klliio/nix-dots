@@ -42,7 +42,7 @@
                 specialArgs = { inherit inputs userInfo; };
                 modules = [
                     inputs.home-manager.nixosModules.home-manager
-                    ./nix/mini.nix
+                    ./nix/hosts/mini.nix
                     (
                       { pkgs, ... }:
                       {
@@ -59,7 +59,7 @@
                 specialArgs = { inherit inputs userInfo; };
                 modules = [
                     inputs.home-manager.nixosModules.home-manager
-                    ./nix/laptop.nix
+                    ./nix/hosts/laptop.nix
                 ];
             };
 
