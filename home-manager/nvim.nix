@@ -14,12 +14,14 @@
         vscode-css-languageserver
         vala-language-server
         typescript-language-server
+        basedpyright
 
         shfmt
         nixfmt
         stylua
         prettierd
         rustfmt
+        black
 
         wl-clipboard # allows copy paste
         fd
