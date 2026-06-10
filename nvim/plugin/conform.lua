@@ -12,6 +12,7 @@ require("conform").setup({
 		css = { "prettierd" },
 		scss = { "prettierd" },
         rust = { "rustfmt" },
-        python = { "black" }
+        python = { "black" },
+        cpp = { "clang-format" }
 	},
 })

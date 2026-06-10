@@ -22,6 +22,7 @@
         prettierd
         rustfmt
         black
+        clang-tools
 
         wl-clipboard # allows copy paste
         fd
@@ -112,6 +113,7 @@
                     p.tree-sitter-typescript
                     p.tree-sitter-javascript
                     p.tree-sitter-vala
+                    p.tree-sitter-cpp
                 ]));
                 type = "lua";
                 config = toFile ../nvim/plugin/treesitter.lua;
