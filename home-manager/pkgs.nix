@@ -21,6 +21,7 @@
         flatpak
         ncdu
         wine64Packages.waylandFull
+        minicom
 
         # game
         gamescope
