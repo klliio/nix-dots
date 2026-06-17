@@ -10,7 +10,7 @@
         gtk3
         gtk4
         libnotify
-        dotnetCorePackages.sdk_9_0-bin
+        dotnetCorePackages.sdk_10_0-bin
         android-tools
 
         # cli
