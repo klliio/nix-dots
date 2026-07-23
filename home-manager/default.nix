@@ -11,7 +11,7 @@
     ./weechat.nix
     ./ags.nix
     ./stylix.nix
-    ./gtk.nix
+    # ./gtk.nix
     ./prismlauncher.nix
     ./foot.nix
     ./nvim.nix
