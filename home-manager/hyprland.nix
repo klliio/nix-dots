@@ -44,6 +44,7 @@
             systemd.enable = true;
             xwayland.enable = true;
             package = hyprland;
+            configType= "lua";
             settings = {
                 "$MOD" = "SUPER";
                 exec-once = [
