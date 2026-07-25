@@ -2,7 +2,7 @@
 {
   imports = [
     ./firefox.nix
-    ./hyprland.nix
+    ./hyprland/hyprland.nix
     ./hyprlock.nix
     ./hypridle.nix
     ./mako.nix
