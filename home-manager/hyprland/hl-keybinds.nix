@@ -95,7 +95,27 @@
             (bind "XF86AudioStop" (exec "${playerctl} pause"))
             (bind "XF86AudioPrev" (exec "${playerctl} previous"))
             (bind "XF86AudioNext" (exec "${playerctl} next"))
-        ]
-        ++ (map (i: (bind (toString i) (movews (toString i) ))) arr)
-        ++ (map (i: (bind (toString i) (movewd (toString i) ))) arr);
+
+            (bind "SUPER + 1" (movews "1"))
+            (bind "SUPER + 2" (movews "2"))
+            (bind "SUPER + 3" (movews "3"))
+            (bind "SUPER + 4" (movews "4"))
+            (bind "SUPER + 5" (movews "5"))
+            (bind "SUPER + 6" (movews "6"))
+            (bind "SUPER + 7" (movews "7"))
+            (bind "SUPER + 8" (movews "8"))
+            (bind "SUPER + 9" (movews "9"))
+            (bind "SUPER + 0" (movews "0"))
+
+            (bind "SUPER + SHIFT + 1" (movewd "1"))
+            (bind "SUPER + SHIFT + 2" (movewd "2"))
+            (bind "SUPER + SHIFT + 3" (movewd "3"))
+            (bind "SUPER + SHIFT + 4" (movewd "4"))
+            (bind "SUPER + SHIFT + 5" (movewd "5"))
+            (bind "SUPER + SHIFT + 6" (movewd "6"))
+            (bind "SUPER + SHIFT + 7" (movewd "7"))
+            (bind "SUPER + SHIFT + 8" (movewd "8"))
+            (bind "SUPER + SHIFT + 9" (movewd "9"))
+            (bind "SUPER + SHIFT + 0" (movewd "0"))
+        ];
 }
