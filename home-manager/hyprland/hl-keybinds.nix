@@ -46,7 +46,7 @@
             special = name: (exec "if hyprctl clients | grep special:${name} ; then hyprctl dispatch togglespecialworkspace ${name} ; else ${name} & fi");
         in [
             (bind "SUPER + SHIFT + Q" "hl.dsp.exit()")
-            (bind "SUPER + W" "hl.dsp.window.kill()")
+            (bind "SUPER + W" "hl.dsp.window.close()")
 
             (bind "SUPER + P" (exec "${applauncher}"))
             (bind "SUPER + RETURN" (exec "${term}"))
