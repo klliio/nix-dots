@@ -41,11 +41,6 @@
                         border_size = 4;
                     };
 
-                    monitor = [
-                        "HDMI-A-1,2560x1440,auto,1, bitdepth, 10, cm, wide"
-                        "HDMI-A-4,2560x1440,auto,1"
-                    ];
-
                     env = [
                         # "WLR_NO_HARDWARE_CURSORS,1"
                         # "WLR_RENDERER_ALLOW_SOFTWARE,1"
@@ -96,31 +91,33 @@
                         new_on_top = true;
                         new_status = "master";
                     };
-
-                    windowrule = let
-                        f = regex: "match:initial_class ^(${regex})$, float on";
-                    in [
-                        (f "pavucontrol")
-                        (f "mpv")
-                        (f "imv")
-
-                        # workspace name is the same as cmd
-                        "workspace special:keepassxc, match:title (.*)(KeePassXC)(.*)"
-                        "workspace special:obsidian, match:title .*((?i)Obsidian).*"
-                    ];
-
-                    workspace = [
-                        "1,monitor:HDMI-A-1"
-                        "2,monitor:HDMI-A-1"
-                        "3,monitor:HDMI-A-1"
-                        "4,monitor:HDMI-A-1"
-                        "5,monitor:HDMI-A-1"
-                        "6,monitor:HDMI-A-1"
-                        "7,monitor:HDMI-A-1"
-                        "8,monitor:HDMI-A-1"
-                        "9,monitor:HDMI-A-1"
-                    ];
                 };
+
+                workspace = [
+                    "1,monitor:HDMI-A-1"
+                    "2,monitor:HDMI-A-1"
+                    "3,monitor:HDMI-A-1"
+                    "4,monitor:HDMI-A-1"
+                    "5,monitor:HDMI-A-1"
+                    "6,monitor:HDMI-A-1"
+                    "7,monitor:HDMI-A-1"
+                    "8,monitor:HDMI-A-1"
+                    "9,monitor:HDMI-A-1"
+                ];
+
+                monitor = {
+                    output = "HDMI-A-1";
+                    mode = "2560x1440";
+                    position = "0x0";
+                    scale = 1;
+                    bitdepth = 10;
+                    cm = "wide";
+                };
+
+                window_rule = [
+                    { match = { initial_class = "(.*)(KeePassXC)(.*)"; }; workspace = "special:keepassxc"; }
+                    { match = { initial_class = ".*((?i)Obsidian).*"; }; workspace = "special:obsidian"; }
+                ];
 
                 animation = {
                     leaf = "global";
