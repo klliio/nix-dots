@@ -54,5 +54,6 @@
         vscode-fhs
         filezilla
         uget
+        bluetuith
     ];
 }
