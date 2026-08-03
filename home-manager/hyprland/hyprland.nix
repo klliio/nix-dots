@@ -93,18 +93,6 @@
                     };
                 };
 
-                workspace = [
-                    "1,monitor:HDMI-A-1"
-                    "2,monitor:HDMI-A-1"
-                    "3,monitor:HDMI-A-1"
-                    "4,monitor:HDMI-A-1"
-                    "5,monitor:HDMI-A-1"
-                    "6,monitor:HDMI-A-1"
-                    "7,monitor:HDMI-A-1"
-                    "8,monitor:HDMI-A-1"
-                    "9,monitor:HDMI-A-1"
-                ];
-
                 monitor = {
                     output = "HDMI-A-1";
                     mode = "2560x1440";
@@ -113,6 +101,10 @@
                     bitdepth = 10;
                     cm = "wide";
                 };
+
+                workspace_rule = [
+                    { workspace = "r[1-8]"; monitor = "HDMI-A-1"; }
+                ];
 
                 window_rule = [
                     { match = { initial_class = "(.*)(KeePassXC)(.*)"; }; workspace = "special:keepassxc"; }
