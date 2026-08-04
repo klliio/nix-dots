@@ -43,7 +43,7 @@
             movewddr = dr: ''hl.dsp.window.move({ direction = "${dr}" })'';
             fs = mode: ''hl.dsp.window.fullscreen({ move = "${mode}" })'';
             focusdr = dr: ''hl.dsp.focus({ direction = "${dr}" })'';
-            special = name: (exec "if hyprctl clients | grep special:${name} ; then hyprctl dispatch togglespecialworkspace ${name} ; else ${name} & fi");
+            special = name: (exec ''if hyprctl clients | grep special:${name} ; then hyprctl dispatch 'hl.dsp.workspace.toggle_special(\"${name}\")' ; else ${name} & fi'');
         in [
             (bind "SUPER + SHIFT + Q" "hl.dsp.exit()")
             (bind "SUPER + W" "hl.dsp.window.close()")
