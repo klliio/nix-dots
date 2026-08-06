@@ -12,6 +12,7 @@
         libnotify
         dotnetCorePackages.sdk_10_0-bin
         android-tools
+        temurin-bin-21
 
         # cli
         rename
