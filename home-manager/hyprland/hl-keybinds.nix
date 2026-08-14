@@ -51,6 +51,7 @@
             (bind "SUPER + P" (exec "${applauncher}"))
             (bind "SUPER + RETURN" (exec "${term}"))
 
+            (bind "SUPER + Scroll_Lock"  (exec "systemctl suspend"))
             (bind "Scroll_Lock"  (exec "${hyprlock}"))
 
             (bind "SUPER + F" (fs "maximized"))
