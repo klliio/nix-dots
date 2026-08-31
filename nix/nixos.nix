@@ -25,6 +25,7 @@
             "audio"
             "video"
             "input"
+            "dialout"
         ];
     };
     nixpkgs.config = {
