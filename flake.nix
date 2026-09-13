@@ -33,7 +33,7 @@
         userInfo = {
             username = "klliio";
             hostname = "nix";
-            wallpaper = ./Wallpapers/girlsbandcry-momoka.jpg;
+            wallpaper = ./Wallpapers/The_Coronation_of_Napoleon.jpg;
         };
     in {
         nixosConfigurations = {
