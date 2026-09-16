@@ -1,6 +1,7 @@
 { pkgs, inputs, userInfo, ... }: {
     imports = [
         ./hardware.nix
+        ./bees.nix
         ./gpu
         ./../../nixos.nix
     ];
