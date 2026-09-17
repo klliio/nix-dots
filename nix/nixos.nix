@@ -14,6 +14,7 @@
         ./appimage.nix
         ./ydotool.nix
         ./platformio.nix
+        ./ffmpeg.nix
     ];
 
     users.users.${userInfo.username} = {

@@ -16,7 +16,6 @@
 
         # cli
         rename
-        ffmpeg
         aria2
         bc
         flatpak
