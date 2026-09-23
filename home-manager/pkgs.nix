@@ -3,6 +3,7 @@
     home.packages = with pkgs; [
         python3
         python3Packages.pip
+        python314Packages.pygobject3
         lzip
         jq
         wireguard-tools
