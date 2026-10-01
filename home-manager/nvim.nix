@@ -89,11 +89,6 @@
 
             # appearance
             {
-                plugin = catppuccin-nvim;
-                type = "lua";
-                config = toFile ../nvim/plugin/catppuccin.lua;
-            }
-            {
                 plugin = lualine-nvim;
                 type = "lua";
                 config = toFile ../nvim/plugin/lualine.lua;

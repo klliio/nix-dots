@@ -4,20 +4,25 @@ require("lualine").setup({
 	theme = "onedark",
 })
 
--- colourscheme
-vim.cmd("colorscheme catppuccin")
-local colors = require("catppuccin.palettes").get_palette()
 local TransparentColours = {
-    Normal = { none },
-    NormalNC = { none },
-    LineNr = { none },
-    Folded = { none },
-    NonText = { none },
-    SpecialKey = { none },
-    VertSplit = { none },
-    SignColumn = { none },
-    EndOfBuffer = { none },
+	"Normal",
+	"NormalNC",
+	"LineNr",
+	"Folded",
+	"NonText",
+	"SpecialKey",
+	"VertSplit",
+	"SignColumn",
+	"EndOfBuffer",
+    "LineNrAbove",
+    "LineNrBelow",
+    "GitSignsAdd",
+    "GitSignsDelete",
+    "GitSignsChange",
 }
+for _, group in pairs(TransparentColours) do
+	vim.api.nvim_set_hl(0, group, { guibg = NONE, ctermbg = NONE })
+end
 
 -- comment
 require("Comment").setup()
