@@ -67,6 +67,11 @@
                     flags.description = "Open applauncher";
                 }
                 {
+                    keys = "SUPER + RETURN";
+                    dispatcher = (exec "${term}");
+                    flags.description = "Open terminal";
+                }
+                {
                     keys = "SUPER + Scroll_Lock";
                     dispatcher = (exec "systemctl suspend");
                     flags.description = "Suspends system";
