@@ -21,7 +21,7 @@
             playerctl = "${pkgs.playerctl}/bin/playerctl";
 
             # user
-            brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
+            ddcutil = "${pkgs.ddcutil}/bin/ddcutil";
             applauncher = "${pkgs.fuzzel}/bin/fuzzel";
             term = "${pkgs.foot}/bin/foot";
 
@@ -31,12 +31,6 @@
             arr = [1 2 3 4 5 6 7 8 9 0];
             lua = lib.generators.mkLuaInline;
             exec = cmd: ''hl.dsp.exec_cmd("${cmd}")'';
-            bind = key: action: {
-                _args = [
-                    key
-                        (lua action)
-                ];
-            };
 
             movews = ws: ''hl.dsp.focus({ workspace = "${ws}" })'';
             movewd = ws: ''hl.dsp.window.move({ workspace = "${ws}", follow = false })'';
@@ -44,79 +38,296 @@
             fs = mode: ''hl.dsp.window.fullscreen({ move = "${mode}" })'';
             focusdr = dr: ''hl.dsp.focus({ direction = "${dr}" })'';
             special = name: (exec ''if hyprctl clients | grep special:${name} ; then hyprctl dispatch 'hl.dsp.workspace.toggle_special(\"${name}\")' ; else ${name} & fi'');
-        in [
-            (bind "SUPER + SHIFT + Q" "hl.dsp.exit()")
-            (bind "SUPER + W" "hl.dsp.window.close()")
+        in
+            map ({
+                    keys,
+                    dispatcher,
+                    flags ? {},
+                }:{
+                _args = [
+                    keys
+                    (lua dispatcher)
+                    flags
+                ];
+            })
+            [
+                {
+                    keys = "SUPER + SHIFT + Q";
+                    dispatcher = ''hl.dsp.exit()'';
+                    flags.description = "Quit Hyprland";
+                }
+                {
+                    keys = "SUPER + W";
+                    dispatcher = ''hl.dsp.window.close()'';
+                    flags.description = "Close active window";
+                }
+                {
+                    keys = "SUPER + P";
+                    dispatcher = (exec "${applauncher}");
+                    flags.description = "Open applauncher";
+                }
+                {
+                    keys = "SUPER + Scroll_Lock";
+                    dispatcher = (exec "systemctl suspend");
+                    flags.description = "Suspends system";
+                }
+                {
+                    keys = "Scroll_Lock";
+                    dispatcher = (exec "${hyprlock}");
+                    flags.description = "Locks system";
+                }
+                {
+                    keys = "SUPER + F";
+                    dispatcher = (fs "miximized");
+                    flags.description = "Fullscreen active window";
+                }
+                {
+                    keys = "SUPER + SHIFT + F";
+                    dispatcher = ''hl.dsp.window.float({})'';
+                    flags.description = "Float active window";
+                }
+                {
+                    keys = "SUPER + SPACE";
+                    dispatcher = "hl.dsp.layout( \"swapwithmaster auto\" )";
+                    flags.description = "Swap active window with master";
+                }
+                {
+                    keys = "SUPER + SHIFT + J";
+                    dispatcher = "hl.dsp.layout( \"swapprev loop\" )";
+                    flags.description = "Swap active window up in the stack";
+                }
+                {
+                    keys = "SUPER + SHIFT + K";
+                    dispatcher = "hl.dsp.layout( \"swapnext loop\" )";
+                    flags.description = "Swap active window down in the stack";
+                }
+                {
+                    keys = "SUPER + M";
+                    dispatcher = "hl.dsp.layout( \"addmaster\" )";
+                    flags.description = "Add active window to master stack";
+                }
+                {
+                    keys = "SUPER + SHIFT + M";
+                    dispatcher = "hl.dsp.layout( \"removemaster\" )";
+                    flags.description = "Remove active window from master stack";
+                }
+                {
+                    keys = "SUPER + SHIFT + H";
+                    dispatcher = "hl.dsp.layout( \"mfact -0.2\" )";
+                    flags.description = "Change master|stack ratio";
+                }
+                {
+                    keys = "SUPER + SHIFT + L";
+                    dispatcher = "hl.dsp.layout( \"mfact +0.2\" )";
+                    flags.description = "Change master|stack ratio";
+                }
+                {
+                    keys = "SUPER + SHIFT + CTRL + H";
+                    dispatcher = "hl.dsp.layout( \"orientationprev\" )";
+                    flags.description = "Rotate master|stack";
+                }
+                {
+                    keys = "SUPER + SHIFT + CTRL + L";
+                    dispatcher = "hl.dsp.layout( \"orientationnext\" )";
+                    flags.description = "Rotate master|stack";
+                }
+                {
+                    keys = "SUPER + H";
+                    dispatcher = (focusdr "left");
+                    flags.description = "Move focus left";
+                }
+                {
+                    keys = "SUPER + J";
+                    dispatcher = (focusdr "down");
+                    flags.description = "Move focus down";
+                }
+                {
+                    keys = "SUPER + K";
+                    dispatcher = (focusdr "up");
+                    flags.description = "Move focus up";
+                }
+                {
+                    keys = "SUPER + L";
+                    dispatcher = (focusdr "right");
+                    flags.description = "Move focus right";
+                }
+                {
+                    keys = "SUPER + SHIFT + O";
+                    dispatcher = (special "obsidian");
+                    flags.description = "Open obsidian workspace";
+                }
+                {
+                    keys = "SUPER + SHIFT + P";
+                    dispatcher = (special "keepassxc");
+                    flags.description = "Open keepass workspace";
+                }
+                {
+                    keys = "SUPER + mouse:272";
+                    dispatcher = "hl.dsp.window.drag()";
+                    flags.description = "Drag window with mouse";
+                }
+                {
+                    keys = "SUPER + mouse:273";
+                    dispatcher = "hl.dsp.window.resize()";
+                    flags.description = "Resize window with mouse";
+                }
+                {
+                    keys = "XF86MonBrightnessDown";
+                    dispatcher = (exec "${ddcutil} --bus=4 setvcp 10 - 5");
+                    flags = {
+                        description = "Lower display brightness";
+                        repeated = true;
+                    };
+                } # not supported on all displays
+                {
+                    keys = "XF86MonBrightnessUp";
+                    dispatcher = (exec "${ddcutil} --bus=4 setvcp 10 + 5");
+                    flags = {
+                        description = "Raise display brightness";
+                        repeated = true;
+                    };
+                } # ddc/ci displays can be used with extra config
+                {
+                    keys = "XF86AudioMute";
+                    dispatcher = (exec "${wpctl} set-mute @DEFAULT_AUDIO_SINK@ toggle");
+                    flags.description = "Mute default audio device";
+                }
+                {
+                    keys = "XF86AudioLowerVolume";
+                    dispatcher = (exec "${wpctl} set-volume @DEFAULT_AUDIO_SINK@ 5%-");
+                    flags.description = "Decrease default audio device volume";
+                }
+                {
+                    keys = "XF86AudioRaiseVolume";
+                    dispatcher = (exec "${wpctl} set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+");
+                    flags.description = "Increase default audio device volume";
+                }
+                {
+                    keys = "XF86AudioPause";
+                    dispatcher = (exec "${playerctl} play-pause");
+                    flags.description = "Play/pause media";
+                }
+                {
+                    keys = "XF86AudioPlay";
+                    dispatcher = (exec "${playerctl} play-pause");
+                    flags.description = "Play/pause media";
+                }
+                {
+                    keys = "XF86AudioStop";
+                    dispatcher = (exec "${playerctl} pause");
+                    flags.description = "Pause media";
+                }
+                {
+                    keys = "XF86AudioPrev";
+                    dispatcher = (exec "${playerctl} previous");
+                    flags.description = "Rewind media";
+                }
+                {
+                    keys = "XF86AudioNext";
+                    dispatcher = (exec "${playerctl} next");
+                    flags.description = "Fastforward media";
+                }
+                {
+                    keys = "SUPER + 1";
+                    dispatcher = (movews "1");
+                    flags.description = "Go to workspace 1";
+                }
+                {
+                    keys = "SUPER + 2";
+                    dispatcher = (movews "2");
+                    flags.description = "Go to workspace 2";
+                }
+                {
+                    keys = "SUPER + 3";
+                    dispatcher = (movews "3");
+                    flags.description = "Go to workspace 3";
+                }
+                {
+                    keys = "SUPER + 4";
+                    dispatcher = (movews "4");
+                    flags.description = "Go to workspace 4";
+                }
+                {
+                    keys = "SUPER + 5";
+                    dispatcher = (movews "5");
+                    flags.description = "Go to workspace 5";
+                }
+                {
+                    keys = "SUPER + 6";
+                    dispatcher = (movews "6");
+                    flags.description = "Go to workspace 6";
+                }
+                {
+                    keys = "SUPER + 7";
+                    dispatcher = (movews "7");
+                    flags.description = "Go to workspace 7";
+                }
+                {
+                    keys = "SUPER + 8";
+                    dispatcher = (movews "8");
+                    flags.description = "Go to workspace 8";
+                }
+                {
+                    keys = "SUPER + 9";
+                    dispatcher = (movews "9");
+                    flags.description = "Go to workspace 9";
+                }
+                {
+                    keys = "SUPER + 0";
+                    dispatcher = (movews "0");
+                    flags.description = "Go to workspace 0";
+                }
 
-            (bind "SUPER + P" (exec "${applauncher}"))
-            (bind "SUPER + RETURN" (exec "${term}"))
-
-            (bind "SUPER + Scroll_Lock"  (exec "systemctl suspend"))
-            (bind "Scroll_Lock"  (exec "${hyprlock}"))
-
-            (bind "SUPER + F" (fs "maximized"))
-            (bind "SUPER + SHIFT + F" "hl.dsp.window.float({})")
-            (bind "SUPER + SPACE" "hl.dsp.layout( \"swapwithmaster auto\" )")
-            (bind "SUPER + SHIFT + J" "hl.dsp.layout( \"swapprev loop\" )")
-            (bind "SUPER + SHIFT + K" "hl.dsp.layout( \"swapnext loop\" )")
-
-            # add/remove window from the master area
-            (bind "SUPER + M" "hl.dsp.layout( \"addmaster\" )")
-            (bind "SUPER + SHIFT + M" "hl.dsp.layout( \"removemaster\" )")
-
-            # change master split ratio
-            (bind "SUPER + SHIFT + H" "hl.dsp.layout( \"mfact -0.2\" )")
-            (bind "SUPER + SHIFT + L" "hl.dsp.layout( \"mfact +0.2\" )")
-
-            # rotate orientation of master
-            (bind "SUPER + SHIFT + CTRL + H" "hl.dsp.layout( \"orientationprev\" )")
-            (bind "SUPER + SHIFT + CTRL + L" "hl.dsp.layout( \"orientationnext\" )")
-
-            (bind "SUPER + H" (focusdr "left"))
-            (bind "SUPER + J" (focusdr "down"))
-            (bind "SUPER + K" (focusdr "up"))
-            (bind "SUPER + L" (focusdr "right"))
-
-            # key | cmd
-            (bind "SUPER + SHIFT + O" (special "obsidian"))
-            (bind "SUPER + SHIFT + P" (special "keepassxc"))
-
-            (bind "SUPER + mouse:272" "hl.dsp.window.drag()")
-            (bind "SUPER + mouse:273" "hl.dsp.window.resize()")
-
-            (bind "XF86MonBrightnessDown" (exec "${brightnessctl} set 5%-")) # not supported on all displays
-            (bind "XF86MonBrightnessUp" (exec "${brightnessctl} set 5%+")) # ddc/ci displays can be used with extra config
-
-            (bind "XF86AudioMute" (exec "${wpctl} set-mute @DEFAULT_AUDIO_SINK@ toggle"))
-            (bind "XF86AudioLowerVolume" (exec "${wpctl} set-volume @DEFAULT_AUDIO_SINK@ 5%-"))
-            (bind "XF86AudioRaiseVolume" (exec "${wpctl} set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"))
-
-            (bind "XF86AudioPause" (exec "${playerctl} play-pause"))
-            (bind "XF86AudioPlay" (exec "${playerctl} play-pause"))
-            (bind "XF86AudioStop" (exec "${playerctl} pause"))
-            (bind "XF86AudioPrev" (exec "${playerctl} previous"))
-            (bind "XF86AudioNext" (exec "${playerctl} next"))
-
-            (bind "SUPER + 1" (movews "1"))
-            (bind "SUPER + 2" (movews "2"))
-            (bind "SUPER + 3" (movews "3"))
-            (bind "SUPER + 4" (movews "4"))
-            (bind "SUPER + 5" (movews "5"))
-            (bind "SUPER + 6" (movews "6"))
-            (bind "SUPER + 7" (movews "7"))
-            (bind "SUPER + 8" (movews "8"))
-            (bind "SUPER + 9" (movews "9"))
-            (bind "SUPER + 0" (movews "0"))
-
-            (bind "SUPER + SHIFT + 1" (movewd "1"))
-            (bind "SUPER + SHIFT + 2" (movewd "2"))
-            (bind "SUPER + SHIFT + 3" (movewd "3"))
-            (bind "SUPER + SHIFT + 4" (movewd "4"))
-            (bind "SUPER + SHIFT + 5" (movewd "5"))
-            (bind "SUPER + SHIFT + 6" (movewd "6"))
-            (bind "SUPER + SHIFT + 7" (movewd "7"))
-            (bind "SUPER + SHIFT + 8" (movewd "8"))
-            (bind "SUPER + SHIFT + 9" (movewd "9"))
-            (bind "SUPER + SHIFT + 0" (movewd "0"))
-        ];
+                {
+                    keys = "SUPER + SHIFT + 1";
+                    dispatcher = (movewd "1");
+                    flags.description = "Move active window to workspace 1";
+                }
+                {
+                    keys = "SUPER + SHIFT + 2";
+                    dispatcher = (movewd "2");
+                    flags.description = "Move active window to workspace 2";
+                }
+                {
+                    keys = "SUPER + SHIFT + 3";
+                    dispatcher = (movewd "3");
+                    flags.description = "Move active window to workspace 3";
+                }
+                {
+                    keys = "SUPER + SHIFT + 4";
+                    dispatcher = (movewd "4");
+                    flags.description = "Move active window to workspace 4";
+                }
+                {
+                    keys = "SUPER + SHIFT + 5";
+                    dispatcher = (movewd "5");
+                    flags.description = "Move active window to workspace 5";
+                }
+                {
+                    keys = "SUPER + SHIFT + 6";
+                    dispatcher = (movewd "6");
+                    flags.description = "Move active window to workspace 6";
+                }
+                {
+                    keys = "SUPER + SHIFT + 7";
+                    dispatcher = (movewd "7");
+                    flags.description = "Move active window to workspace 6";
+                }
+                {
+                    keys = "SUPER + SHIFT + 8";
+                    dispatcher = (movewd "8");
+                    flags.description = "Move active window to workspace 7";
+                }
+                {
+                    keys = "SUPER + SHIFT + 9";
+                    dispatcher = (movewd "9");
+                    flags.description = "Move active window to workspace 9";
+                }
+                {
+                    keys = "SUPER + SHIFT + 0";
+                    dispatcher = (movewd "0");
+                    flags.description = "Move active window to workspace 0";
+                }
+            ];
+    # END OF BINDINGS ---------------------------------------------------------
 }

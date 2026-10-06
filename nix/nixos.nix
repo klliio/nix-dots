@@ -1,5 +1,6 @@
 { pkgs, inputs, userInfo, lib, ... }: {
     imports = [
+        ./ddcci.nix
         ./system.nix
         ./boot.nix
         ./audio.nix
