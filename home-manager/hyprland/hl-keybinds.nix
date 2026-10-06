@@ -179,18 +179,12 @@
                 {
                     keys = "XF86MonBrightnessDown";
                     dispatcher = (exec "${ddcutil} --bus=4 setvcp 10 - 5");
-                    flags = {
-                        description = "Lower display brightness";
-                        repeated = true;
-                    };
+                    flags.description = "Lower display brightness";
                 } # not supported on all displays
                 {
                     keys = "XF86MonBrightnessUp";
                     dispatcher = (exec "${ddcutil} --bus=4 setvcp 10 + 5");
-                    flags = {
-                        description = "Raise display brightness";
-                        repeated = true;
-                    };
+                    flags.description = "Raise display brightness";
                 } # ddc/ci displays can be used with extra config
                 {
                     keys = "XF86AudioMute";
