@@ -23,6 +23,7 @@
         ncdu
         wine64Packages.waylandFull
         minicom
+        imagemagick
 
         # game
         gamescope
