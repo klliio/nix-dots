@@ -5,8 +5,8 @@
         settings = {
             sort = "+time";
             icons = true;
-            defaultTimeout = 2000;
-            ignoreTimeout = true;
+            default-timeout = 2000;
+            ignore-timeout = true;
         };
     };
 }
