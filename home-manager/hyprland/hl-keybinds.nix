@@ -25,6 +25,11 @@
             applauncher = "${pkgs.fuzzel}/bin/fuzzel";
             term = "${pkgs.foot}/bin/foot";
 
+            # screencapture
+            screenshot = import ../scripts/screenshot.nix pkgs;
+            screencapture = import ../scripts/screencapture.nix pkgs;
+            screenclip = import ../scripts/screenclip.nix pkgs;
+
             # utility
             hyprlock = "${pkgs.hyprlock}/bin/hyprlock";
 
@@ -326,6 +331,32 @@
                     keys = "SUPER + SHIFT + 0";
                     dispatcher = (movewd "0");
                     flags.description = "Move active window to workspace 0";
+                }
+
+                {
+                    keys = "PRINT";
+                    dispatcher = (exec "${screenshot} --quick");
+                    flags.description = "Quick screenshot";
+                }
+                {
+                    keys = "SUPER + PRINT";
+                    dispatcher = (exec "${screenshot}");
+                    flags.description = "Select Screenshot area";
+                }
+                {
+                    keys = "SUPER + CONTROL + PRINT";
+                    dispatcher = (exec "${screencapture}");
+                    flags.description = "Record screen";
+                }
+                {
+                    keys = "SUPER + CONTROL + SHIFT + PRINT";
+                    dispatcher = (exec "${screencapture}");
+                    flags.description = "Start background recording";
+                }
+                {
+                    keys = "SUPER + SHIFT + PRINT";
+                    dispatcher = (exec "${screencapture} --save");
+                    flags.description = "Save background recording";
                 }
             ];
     # END OF BINDINGS ---------------------------------------------------------
